@@ -1,5 +1,8 @@
 <?php
-$query = mysqli_query($conn, "SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, barang.foto, barang.deskripsi, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user and pinjambarang.id='$_GET[id]'");
+$query = mysqli_query(
+	$conn,
+	"SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, barang.foto, barang.deskripsi, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user and pinjambarang.id='$_GET[id]'"
+);
 $d = mysqli_fetch_array($query);
 ?>
 
@@ -42,49 +45,47 @@ $d = mysqli_fetch_array($query);
 									<tr>
 										<td>Nama Peminjam</td>
 										<td>:</td>
-										<td><?php echo $d['nama_lengkap'] ?></td>
+										<td><?php echo $d["nama_lengkap"]; ?></td>
 									</tr>
 									<tr>
 										<td>Nama Barang</td>
 										<td>:</td>
-										<td><?php echo $d['nama_barang'] ?></td>
+										<td><?php echo $d["nama_barang"]; ?></td>
 									</tr>
 									<tr>
 										<td>Jumlah Pinjam</td>
 										<td>:</td>
-										<td><?php echo $d['qty'] ?></td>
+										<td><?php echo $d["qty"]; ?></td>
 									</tr>
 									<tr>
 										<td>Tgl Mulai</td>
 										<td>:</td>
-										<td><?php echo $d['tgl_mulai'] ?></td>
+										<td><?php echo $d["tgl_mulai"]; ?></td>
 									</tr>
 									<tr>
 										<td>Tgl Selesai</td>
 										<td>:</td>
-										<td><?php echo $d['tgl_selesai'] ?></td>
+										<td><?php echo $d["tgl_selesai"]; ?></td>
 									</tr>
 									<tr>
 										<td>Status</td>
 										<td>:</td>
-										<td><?php echo $d['status'] ?></td>
+										<td><?php echo $d["status"]; ?></td>
 									</tr>
 									<tr>
 										<td>Lokasi Barang</td>
 										<td>:</td>
-										<td><?php echo $d['lokasi_barang'] ?></td>
+										<td><?php echo $d["lokasi_barang"]; ?></td>
 									</tr>
-
 									<tr>
 										<td>Deskripsi</td>
 										<td>:</td>
-										<td><?php echo $d['deskripsi'] ?></td>
+										<td><?php echo $d["deskripsi"]; ?></td>
 									</tr>
-
 									<tr>
 										<td>Foto</td>
 										<td>:</td>
-										<td><img src="../admin/master/barang/Fotobarang/<?php echo $d['foto'] ?>" width="400" height="200"></td>
+										<td><img src="../admin/master/barang/Fotobarang/<?php echo $d["foto"]; ?>" width="400" height="200"></td>
 									</tr>
 								</table>
 							</div>

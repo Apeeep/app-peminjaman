@@ -36,15 +36,21 @@
 									<select class="form-control" id="id_ruangan" onchange="change(this.value)" name="id_ruangan" required="">
 										<option value="" hidden="">-- Pilih Ruangan --</option>
 										<?php
-										$query       = mysqli_query($conn, 'SELECT * from ruangan');
-										$deskripsi 	 = "var deskripsi 		= new Array();\n;";
+										$query = mysqli_query($conn, "SELECT * from ruangan");
+										$deskripsi = "var deskripsi 		= new Array();\n;";
 										$nama_ruangan = "var nama_ruangan= new Array();\n;";
 										while ($row = mysqli_fetch_array($query)) {
-											if ($row['status'] == 'free') {
-												echo '<option value="' . $row['id'] . '">' . $row['nama_ruangan'] . '</option>';
+											if ($row["status"] == "free") {
+												echo '<option value="' . $row["id"] . '">' . $row["nama_ruangan"] . "</option>";
 											}
-											$deskripsi .= "deskripsi['" . $row['id'] . "'] = {deskripsi:'" . addslashes($row['deskripsi']) . "'};\n";
-											$nama_ruangan .= "nama_ruangan['" . $row['id'] . "'] = {nama_ruangan:'" . addslashes($row['nama_ruangan']) . "'};\n";
+											$deskripsi .=
+												"deskripsi['" . $row["id"] . "'] = {deskripsi:'" . addslashes($row["deskripsi"]) . "'};\n";
+											$nama_ruangan .=
+												"nama_ruangan['" .
+												$row["id"] .
+												"'] = {nama_ruangan:'" .
+												addslashes($row["nama_ruangan"]) .
+												"'};\n";
 										}
 										?>
 									</select>
@@ -80,8 +86,10 @@
 
 								<div class="form-group">
 									<label>Tgl Mulai Pinjam</label>
-									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php date_default_timezone_set("Asia/Jakarta");
-																												echo date('Y-m-d H:i:s') ?>">
+									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php
+																												date_default_timezone_set("Asia/Jakarta");
+																												echo date("Y-m-d H:i:s");
+																												?>">
 								</div>
 
 								<div class="form-group">
@@ -89,7 +97,7 @@
 									<input type="datetime-local" name="tgl_selesai" class="form-control">
 								</div>
 
-								<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'] ?>">
+								<input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
 								<input type="hidden" name="email_admin" value="emailpenerima@gmail.com">
 								<input type="hidden" name="status" value="menunggu">
 
@@ -121,27 +129,28 @@
 	};
 </script>
 
-<?php
-if (isset($_POST['simpan'])) {
+<?php if (isset($_POST["simpan"])) {
+	$id_ruangan = $_POST["id_ruangan"];
+	$tgl_mulai = $_POST["tgl_mulai"];
+	$tgl_selesai = $_POST["tgl_selesai"];
+	$id_user = $_POST["id_user"];
+	$status = $_POST["status"];
 
-	$id_ruangan = $_POST['id_ruangan'];
-	$tgl_mulai = $_POST['tgl_mulai'];
-	$tgl_selesai = $_POST['tgl_selesai'];
-	$id_user = $_POST['id_user'];
-	$status = $_POST['status'];
-
-	$email_user = $_POST['email_user'];
-	$email_admin = $_POST['email_admin'];
-	$password_user = $_POST['password_user'];
-	$nama_ruangan = $_POST['nama_ruangan'];
+	$email_user = $_POST["email_user"];
+	$email_admin = $_POST["email_admin"];
+	$password_user = $_POST["password_user"];
+	$nama_ruangan = $_POST["nama_ruangan"];
 
 	$selSto = mysqli_query($conn, "SELECT * FROM ruangan WHERE id='$id_ruangan'");
-	$sto    = mysqli_fetch_array($selSto);
-	$stok    = $sto['status'];
+	$sto = mysqli_fetch_array($selSto);
+	$stok = $sto["status"];
 	//menghitung sisa stok
-	$sisa    = 'dipinjam';
+	$sisa = "dipinjam";
 
-	mysqli_query($conn, "INSERT into pinjamruangan values ('','$id_ruangan', '$id_user','$tgl_mulai','$tgl_selesai','$status')");
+	mysqli_query(
+		$conn,
+		"INSERT into pinjamruangan values ('','$id_ruangan', '$id_user','$tgl_mulai','$tgl_selesai','$status')"
+	);
 	mysqli_query($conn, "UPDATE ruangan SET status='$sisa' WHERE id='$id_ruangan'");
 }
 ?>
