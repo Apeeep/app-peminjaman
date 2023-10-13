@@ -41,7 +41,9 @@
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Nama User</th>
+													<th>Nama Lengkap</th>
+													<th>Email</th>
+													<th>Username</th>
 													<th>Level</th>
 													<th>Action</th>
 												</tr>
@@ -56,6 +58,8 @@
 												<tr>
 													<td><?php echo $no++ ?></td>
 													<td><?php echo $user['nama_lengkap'] ?></td>
+													<td><?php echo $user['email'] ?></td>
+													<td><?php echo $user['username'] ?></td>
 													<td><?php echo $user['level'] ?></td>
 													<td>
 														<a href="#modalDetailUser<?php echo $user['id'] ?>" data-toggle="modal" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
