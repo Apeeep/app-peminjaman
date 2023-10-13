@@ -181,7 +181,7 @@
 														<label>Level</label>
                                                         <select name="level" class="form-control" required="">
                                                             <option value="admin">Admin</option>
-                                                            <option value="user" selected>User</option>
+                                                            <option value="user">User</option>
                                                         </select>
 													</div>
 												</div>
@@ -314,7 +314,7 @@
                     $password = $_POST['password'];
                     $level = $_POST['level'];
                         
-                    mysqli_query($conn,"UPDATE user set id='$id', nama_lengkap='$nama_lengkap', email='$email', nohp='$nohp', username='$username', password='$password' where id='$id'");
+                    mysqli_query($conn,"UPDATE user set id='$id', nama_lengkap='$nama_lengkap', email='$email', nohp='$nohp', username='$username', password='$password', level='$level' where id='$id'");
                     echo "<script>alert ('User Berhasil Diubah') </script>";
                     echo"<meta http-equiv='refresh' content=0; URL=?view=datauser>";
                 }
