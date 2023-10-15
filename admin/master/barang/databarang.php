@@ -71,6 +71,9 @@
 					</div>
 				</div>
 			</div>
+			<center>
+				<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+			</center>
 		</div>
 	</div>
 	<center>

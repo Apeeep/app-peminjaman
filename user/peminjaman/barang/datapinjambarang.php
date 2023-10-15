@@ -31,7 +31,7 @@
 								<h4 class="card-title">Data Pinjam Barang</h4>
 								<a href="?view=createpinjambarang" class="btn btn-primary btn-round ml-auto">
 									<i class="fa fa-plus"></i>
-									Tambah Data
+									Pinjam Barang
 								</a>
 							</div>
 						</div>
@@ -98,7 +98,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
+		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
 	</center>
 </div>
 

@@ -38,7 +38,7 @@
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama Peminjam</th>
+											<th>Nama</th>
 											<th>Nama Barang</th>
 											<th>Tgl Mulai</th>
 											<th>Tgl Selesai</th>
@@ -51,18 +51,16 @@
 									<tbody>
 										<?php
 										$no = 1;
-										$query = mysqli_query(
-											$conn,
-											"SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user"
-										);
-										while ($pinjambarang = mysqli_fetch_array($query)) { ?>
+										$query = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
+										while ($pinjambarang = mysqli_fetch_array($query)) {
+										?>
 											<tr>
-												<td><?php echo $no++; ?></td>
-												<td><?php echo $pinjambarang["nama_lengkap"]; ?></td>
-												<td><?php echo $pinjambarang["nama_barang"]; ?></td>
-												<td><?php echo $pinjambarang["tgl_mulai"]; ?></td>
-												<td><?php echo $pinjambarang["tgl_selesai"]; ?></td>
-												<td><?php echo $pinjambarang["qty"]; ?></td>
+												<td><?php echo $no++ ?></td>
+												<td><?php echo $pinjambarang['nama_lengkap'] ?></td>
+												<td><?php echo $pinjambarang['nama_barang'] ?></td>
+												<td><?php echo $pinjambarang['tgl_mulai'] ?></td>
+												<td><?php echo $pinjambarang['tgl_selesai'] ?></td>
+												<td><?php echo $pinjambarang['qty'] ?></td>
 												<td>
 													<?php if ($pinjambarang["status"] == "menunggu") { ?>
 														<div class="badge badge-danger"><?php echo $pinjambarang["status"]; ?></div>
@@ -71,9 +69,9 @@
 													<?php } ?>
 												</td>
 												<td>
-													<?php if ($pinjambarang["status"] == "menunggu") { ?>
-														<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang["id"]; ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang["id"]; ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-success"><i class="fa fa-check-circle"></i> Aprrove</a>
+													<?php if ($pinjambarang['status'] == 'menunggu') { ?>
+														<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang['id'] ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-info"><i class="fa fa-check-circle"></i> Aprrove</a>
 													<?php } else { ?>
 														<div class="badge badge-success"><?php echo $pinjambarang["status"]; ?></div>
 													<?php } ?>
@@ -91,7 +89,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
+		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
 	</center>
 </div>
 
