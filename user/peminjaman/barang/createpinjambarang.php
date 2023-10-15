@@ -153,6 +153,7 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -166,6 +167,10 @@
 	$lokasi_barang = $_POST["lokasi_barang"];
 	$id_user = $_POST["id_user"];
 	$status = $_POST["status"];
+=======
+<?php
+if (isset($_POST['simpan'])) {
+>>>>>>> parent of 02a0fce (clean code)
 =======
 <?php
 if (isset($_POST['simpan'])) {

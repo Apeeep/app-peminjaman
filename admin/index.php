@@ -94,13 +94,13 @@ session_start();
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<!-- <li class="nav-section">
+						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
 							</span>
 							<h4 class="text-section">Components</h4>
-						</li> -->
-						<!-- <li class="nav-item">
+						</li>
+						<li class="nav-item">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
 								<p>Data Master</p>
@@ -126,7 +126,7 @@ session_start();
 								</ul>
 							</div>
 						</li>
-						
+
 						<li class="nav-item">
 							<a href="?view=datapinjambarang">
 								<i class="fas fa-book"></i>
@@ -175,32 +175,32 @@ session_start();
 		elseif ($_GET['view'] == 'detailpinjamruangan')
 			include '../user/peminjaman/ruangan/detailpinjamruangan.php';
 		?>
-		
+
 		<!-- Custom template | don't include it in your project! -->
-						<!-- End Custom template -->
-				</div>
-				<!--   Core JS Files   -->
-				<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
-				<script src="../assets/js/core/popper.min.js"></script>
-				<script src="../assets/js/core/bootstrap.min.js"></script>
-				<!-- jQuery UI -->
-				<script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-				<script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-				<!-- Bootstrap Toggle -->
-				<script src="../assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-				<!-- jQuery Scrollbar -->
-				<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-				<!-- Datatables -->
-				<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-				<!-- Azzara JS -->
-				<script src="../assets/js/ready.min.js"></script>
-				<!-- Azzara DEMO methods, don't include it in your project! -->
-				<script src="../assets/js/setting-demo.js"></script>
-				<script>
-					$(document).ready(function() {
-						$('#add-row').DataTable({});
-					});
-				</script>
+		<!-- End Custom template -->
+	</div>
+	<!--   Core JS Files   -->
+	<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="../assets/js/core/popper.min.js"></script>
+	<script src="../assets/js/core/bootstrap.min.js"></script>
+	<!-- jQuery UI -->
+	<script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<!-- Bootstrap Toggle -->
+	<script src="../assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<!-- jQuery Scrollbar -->
+	<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<!-- Datatables -->
+	<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+	<!-- Azzara JS -->
+	<script src="../assets/js/ready.min.js"></script>
+	<!-- Azzara DEMO methods, don't include it in your project! -->
+	<script src="../assets/js/setting-demo.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#add-row').DataTable({});
+		});
+	</script>
 </body>
 
 </html>
