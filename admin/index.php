@@ -5,18 +5,24 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Peminjaman Barang dan Ruangan</title>
+	<title>Peminjaman lab kebidanan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon"/>
-	
+	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
+
 	<!-- Fonts and icons -->
 	<script src="../assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
-			google: {"families":["Open+Sans:300,400,600,700"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['../assets/css/fonts.css']},
+			google: {
+				"families": ["Open+Sans:300,400,600,700"]
+			},
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
+				urls: ['../assets/css/fonts.css']
+			},
 			active: function() {
 				sessionStorage.fonts = true;
 			}
@@ -29,6 +35,7 @@ session_start();
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="../assets/css/demo.css">
 </head>
+
 <body>
 	<div class="wrapper">
 		<!--
@@ -37,7 +44,7 @@ session_start();
 		<div class="main-header" data-background-color="light-blue">
 			<!-- Logo Header -->
 			<div class="logo-header">
-				
+
 				<a href="#" class="logo">
 					<img src="../assets/img/logoazzara.svg" alt="navbar brand" class="navbar-brand">
 				</a>
@@ -57,7 +64,7 @@ session_start();
 
 			<!-- Navbar Header -->
 			<nav class="navbar navbar-header navbar-expand-lg">
-				
+
 				<div class="container-fluid">
 					<div class="collapse" id="search-nav">
 						<form class="navbar-left navbar-form nav-search mr-md-3">
@@ -77,7 +84,7 @@ session_start();
 		</div>
 		<!-- Sidebar -->
 		<div class="sidebar">
-			
+
 			<div class="sidebar-wrapper scrollbar-inner">
 				<div class="sidebar-content">
 					<ul class="nav">
@@ -87,13 +94,13 @@ session_start();
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<li class="nav-section">
+						<!-- <li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
 							</span>
 							<h4 class="text-section">Components</h4>
-						</li>
-						<li class="nav-item">
+						</li> -->
+						<!-- <li class="nav-item">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
 								<p>Data Master</p>
@@ -122,15 +129,8 @@ session_start();
 						
 						<li class="nav-item">
 							<a href="?view=datapinjambarang">
-								<i class="fas fa-briefcase"></i>
+								<i class="fas fa-book"></i>
 								<p>Pinjam Barang</p>
-							</a>
-						</li>
-
-						<li class="nav-item">
-							<a href="?view=datapinjamruangan">
-								<i class="fas fa-briefcase"></i>
-								<p>Pinjam Ruangan</p>
 							</a>
 						</li>
 
@@ -146,61 +146,61 @@ session_start();
 		</div>
 
 		<?php
-                    // Dashboard
-                    if(@$_GET['view']=='')
-                        include 'dashboard.php';
-                    elseif($_GET['view']=='dashboard')
-                        include 'dashboard.php';
+		// Dashboard
+		if (@$_GET['view'] == '')
+			include 'dashboard.php';
+		elseif ($_GET['view'] == 'dashboard')
+			include 'dashboard.php';
 
-                    // Data User
-                    elseif($_GET['view']=='datauser')
-                        include 'master/user/datauser.php';
-                    
-					// Data Barang
-                    elseif($_GET['view']=='databarang')
-                        include 'master/barang/databarang.php';
-                    
-                    // Data Ruangan
-                    elseif($_GET['view']=='dataruangan')
-                        include 'master/ruangan/dataruangan.php';
+		// Data User
+		elseif ($_GET['view'] == 'datauser')
+			include 'master/user/datauser.php';
 
-                    // Data Peminjaman
-                    elseif($_GET['view']=='datapinjambarang')
-                        include 'peminjaman/datapinjambarang.php';
-                    elseif($_GET['view']=='detailpinjambarang')
-                        include '../user/peminjaman/barang/detailpinjambarang.php';
+		// Data Barang
+		elseif ($_GET['view'] == 'databarang')
+			include 'master/barang/databarang.php';
 
-                    elseif($_GET['view']=='datapinjamruangan')
-                        include 'peminjaman/datapinjamruangan.php';
-                    elseif($_GET['view']=='detailpinjamruangan')
-                        include '../user/peminjaman/ruangan/detailpinjamruangan.php';
-                 ?>
+		// Data Ruangan
+		elseif ($_GET['view'] == 'dataruangan')
+			include 'master/ruangan/dataruangan.php';
+
+		// Data Peminjaman
+		elseif ($_GET['view'] == 'datapinjambarang')
+			include 'peminjaman/datapinjambarang.php';
+		elseif ($_GET['view'] == 'detailpinjambarang')
+			include '../user/peminjaman/barang/detailpinjambarang.php';
+
+		elseif ($_GET['view'] == 'datapinjamruangan')
+			include 'peminjaman/datapinjamruangan.php';
+		elseif ($_GET['view'] == 'detailpinjamruangan')
+			include '../user/peminjaman/ruangan/detailpinjamruangan.php';
+		?>
 		
 		<!-- Custom template | don't include it in your project! -->
-		<!-- End Custom template -->
-	</div>
-	<!--   Core JS Files   -->
-	<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
-	<script src="../assets/js/core/popper.min.js"></script>
-	<script src="../assets/js/core/bootstrap.min.js"></script>
-	<!-- jQuery UI -->
-	<script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-	<!-- Bootstrap Toggle -->
-	<script src="../assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-	<!-- jQuery Scrollbar -->
-	<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-	<!-- Datatables -->
-	<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-	<!-- Azzara JS -->
-	<script src="../assets/js/ready.min.js"></script>
-	<!-- Azzara DEMO methods, don't include it in your project! -->
-	<script src="../assets/js/setting-demo.js"></script>
-	<script >
-		$(document).ready(function() {
-			$('#add-row').DataTable({
-			});
-		});
-	</script>
+						<!-- End Custom template -->
+				</div>
+				<!--   Core JS Files   -->
+				<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
+				<script src="../assets/js/core/popper.min.js"></script>
+				<script src="../assets/js/core/bootstrap.min.js"></script>
+				<!-- jQuery UI -->
+				<script src="../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+				<script src="../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+				<!-- Bootstrap Toggle -->
+				<script src="../assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+				<!-- jQuery Scrollbar -->
+				<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+				<!-- Datatables -->
+				<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+				<!-- Azzara JS -->
+				<script src="../assets/js/ready.min.js"></script>
+				<!-- Azzara DEMO methods, don't include it in your project! -->
+				<script src="../assets/js/setting-demo.js"></script>
+				<script>
+					$(document).ready(function() {
+						$('#add-row').DataTable({});
+					});
+				</script>
 </body>
+
 </html>

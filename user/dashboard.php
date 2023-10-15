@@ -130,5 +130,11 @@ $z = mysqli_fetch_array($t);
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
+			<center>
+				<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+			</center>
+=======
 			<center><h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6></center>
+>>>>>>> parent of 02a0fce (clean code)
 		</div>
