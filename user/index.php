@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php';
+include "../koneksi.php";
 session_start();
 ?>
 
@@ -8,26 +8,10 @@ session_start();
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Peminjaman Lab Kebidanan</title>
+	<title>Peminjaman Barang dan Ruangan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="../assets/img/logogundar.png" type="image/x-icon" />
+	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
 
-	<style>
-		.wrapper.wrapper-login {
-			background-image: url('assets/img/veloz.jpg');
-			background-size: cover;
-			background-repeat: no-repeat;
-		}
-
-		.copyright {
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
-			color: #e5e3e3;
-			font-size: 12px;
-		}
-	</style>
 	<!-- Fonts and icons -->
 	<script src="../assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
@@ -60,9 +44,9 @@ session_start();
 		<div class="main-header" data-background-color="purple">
 			<!-- Logo Header -->
 			<div class="logo-header">
-				<a>
-					<img src="../assets/img/logogundar.png" alt="Lab Kebidanan UG Logo" style="width: 25px;">
-					Lab kebidanan UG
+
+				<a href="#" class="logo">
+					<img src="../assets/img/logoazzara.svg" alt="navbar brand" class="navbar-brand">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -110,24 +94,27 @@ session_start();
 								<p>Dashboard</p>
 							</a>
 						</li>
-						<!-- <li class="nav-section">
+						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
 							</span>
 							<h4 class="text-section">Components</h4>
-						</li> -->
-						<li class="nav-item">
-							<a href="?view=createpinjambarang">
-								<i class="fas fa-book"></i>
-								<p>Pinjam Barang</p>
-							</a>
 						</li>
+
 						<li class="nav-item">
 							<a href="?view=datapinjambarang">
 								<i class="fas fa-briefcase"></i>
-								<p>Barang Dipinjam</p>
+								<p>Pinjam Barang</p>
 							</a>
 						</li>
+
+						<li class="nav-item">
+							<a href="?view=datapinjamruangan">
+								<i class="fas fa-briefcase"></i>
+								<p>Pinjam Ruangan</p>
+							</a>
+						</li>
+
 						<li class="nav-item">
 							<a href="../logout.php">
 								<i class="fas fa-lock"></i>
@@ -139,32 +126,30 @@ session_start();
 			</div>
 		</div>
 
-		<?php
-		// Dashboard
-		if (@$_GET['view'] == '')
-			include 'dashboard.php';
-		elseif ($_GET['view'] == 'dashboard')
-			include 'dashboard.php';
+		<?php // Dashboard
+		if (@$_GET["view"] == "") {
+			include "dashboard.php";
+		} elseif ($_GET["view"] == "dashboard") {
+			include "dashboard.php";
+		}
 
 		// Data Pinjam Barang
-		elseif ($_GET['view'] == 'datapinjambarang')
-			include 'peminjaman/barang/datapinjambarang.php';
-		elseif ($_GET['view'] == 'createpinjambarang')
-			include 'peminjaman/barang/createpinjambarang.php';
-		elseif ($_GET['view'] == 'detailpinjambarang')
-			include 'peminjaman/barang/detailpinjambarang.php';
+		elseif ($_GET["view"] == "datapinjambarang") {
+			include "peminjaman/barang/datapinjambarang.php";
+		} elseif ($_GET["view"] == "createpinjambarang") {
+			include "peminjaman/barang/createpinjambarang.php";
+		} elseif ($_GET["view"] == "detailpinjambarang") {
+			include "peminjaman/barang/detailpinjambarang.php";
+		}
 
 		// Data Pinjam Ruangan
-		elseif ($_GET['view'] == 'datapinjamruangan')
-			include 'peminjaman/ruangan/datapinjamruangan.php';
-
-		elseif ($_GET['view'] == 'createpinjamruangan')
-			include 'peminjaman/ruangan/createpinjamruangan.php';
-
-		elseif ($_GET['view'] == 'detailpinjamruangan')
-			include 'peminjaman/ruangan/detailpinjamruangan.php';
-
-		?>
+		elseif ($_GET["view"] == "datapinjamruangan") {
+			include "peminjaman/ruangan/datapinjamruangan.php";
+		} elseif ($_GET["view"] == "createpinjamruangan") {
+			include "peminjaman/ruangan/createpinjamruangan.php";
+		} elseif ($_GET["view"] == "detailpinjamruangan") {
+			include "peminjaman/ruangan/detailpinjamruangan.php";
+		} ?>
 
 		<!-- Custom template | don't include it in your project! -->
 		<!-- End Custom template -->

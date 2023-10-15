@@ -38,13 +38,7 @@
 									<thead>
 										<tr>
 											<th>No</th>
-<<<<<<< HEAD
-<<<<<<< HEAD
 											<th>Nama</th>
-=======
->>>>>>> parent of 02a0fce (clean code)
-=======
->>>>>>> parent of 02a0fce (clean code)
 											<th>Nama Barang</th>
 											<th>Tgl Mulai</th>
 											<th>Tgl Selesai</th>
@@ -57,26 +51,12 @@
 									<tbody>
 										<?php
 										$no = 1;
-<<<<<<< HEAD
-<<<<<<< HEAD
 										$query = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
-=======
-										$query = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
->>>>>>> parent of 02a0fce (clean code)
-=======
-										$query = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
->>>>>>> parent of 02a0fce (clean code)
 										while ($pinjambarang = mysqli_fetch_array($query)) {
 										?>
 											<tr>
 												<td><?php echo $no++ ?></td>
-<<<<<<< HEAD
-<<<<<<< HEAD
 												<td><?php echo $pinjambarang['nama_lengkap'] ?></td>
-=======
->>>>>>> parent of 02a0fce (clean code)
-=======
->>>>>>> parent of 02a0fce (clean code)
 												<td><?php echo $pinjambarang['nama_barang'] ?></td>
 												<td><?php echo $pinjambarang['tgl_mulai'] ?></td>
 												<td><?php echo $pinjambarang['tgl_selesai'] ?></td>
@@ -91,15 +71,7 @@
 												<td>
 													<?php if ($pinjambarang['status'] == 'menunggu') { ?>
 														<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang['id'] ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-<<<<<<< HEAD
-<<<<<<< HEAD
 														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-info"><i class="fa fa-check-circle"></i> Aprrove</a>
-=======
-														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-success"><i class="fa fa-check-circle"></i> Aprrove</a>
->>>>>>> parent of 02a0fce (clean code)
-=======
-														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-success"><i class="fa fa-check-circle"></i> Aprrove</a>
->>>>>>> parent of 02a0fce (clean code)
 													<?php } else { ?>
 														<div class="badge badge-success"><?php echo $pinjambarang['status'] ?></div>
 													<?php } ?>

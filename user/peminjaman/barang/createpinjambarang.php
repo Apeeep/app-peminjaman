@@ -46,6 +46,7 @@
 											$stok .= "stok['" . $row['id'] . "'] = {stok:'" . addslashes($row['stok']) . "'};\n";
 											$deskripsi .= "deskripsi['" . $row['id'] . "'] = {deskripsi:'" . addslashes($row['deskripsi']) . "'};\n";
 											$nama_barang .= "nama_barang['" . $row['id'] . "'] = {nama_barang:'" . addslashes($row['nama_barang']) . "'};\n";
+											$foto .= "foto['" . $row['id'] . "'] = {foto:'" . addslashes($row['foto']) . "'};\n";
 										}
 										?>
 									</select>
@@ -60,15 +61,13 @@
 
 								<div class="form-group">
 									<label>Deskripsi</label>
-									<textarea readonly="" style="white-space: pre-line;" id="deskripsi" rows="3" class="form-control"></textarea>
+									<textarea readonly="" style="white-space: pre-line;" id="deskripsi" rows="5" class="form-control"></textarea>
 								</div>
 
 								<div class="form-group">
-									<label>Gambar Barang</label>
-									<img id="foto" src="" style="width: 450px; height: 350px;" class="form-control">
+									<label>Foto</label>
+									<img style="white-space: pre-line;" id="foto" rows="5" class="form-control" />
 								</div>
-
-
 
 							</div>
 
@@ -82,14 +81,14 @@
 						</div>
 						<form method="POST" action="" enctype="multipart/form-data">
 							<div class="card-body">
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Email Pengirim</label>
 									<input type="email" name="email_user" placeholder="Email Pengirim ..." class="form-control" required="">
 								</div>
 								<div class="form-group">
 									<label>Password Pengirim</label>
 									<input type="password" name="password_user" placeholder="Password Pengirim ..." class="form-control" required="">
-								</div> -->
+								</div>
 
 								<div class="form-group">
 									<label>Jumlah Pinjam Barang</label>
@@ -98,8 +97,10 @@
 
 								<div class="form-group">
 									<label>Tgl Mulai Pinjam</label>
-									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php date_default_timezone_set("Asia/Jakarta");
-																												echo date('Y-m-d H:i:s') ?>">
+									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php
+																												date_default_timezone_set("Asia/Jakarta");
+																												echo date("Y-m-d H:i:s");
+																												?>">
 								</div>
 
 								<div class="form-group">
@@ -107,12 +108,12 @@
 									<input type="datetime-local" name="tgl_selesai" class="form-control">
 								</div>
 
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label>Lokasi Barang</label>
 									<textarea class="form-control" name="lokasi_barang" rows="5" placeholder="Lokasi Barang ..." style="white-space: pre-line;"></textarea>
-								</div> -->
+								</div>
 
-								<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'] ?>">
+								<input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
 								<input type="hidden" name="email_admin" value="emailpenerima@gmail.com">
 								<input type="hidden" name="status" value="menunggu">
 
@@ -128,7 +129,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
 	</center>
 </div>
 
@@ -137,7 +138,7 @@
 	echo $stok;
 	echo $deskripsi;
 	echo $nama_barang;
-	echo $foto;
+	echo $foto
 	?>
 
 	function changeValue(id_barang) {
@@ -152,13 +153,6 @@
 </script>
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-
-
-
 <?php if (isset($_POST["simpan"])) {
 	$id_barang = $_POST["id_barang"];
 	$qty = $_POST["qty"];
@@ -167,38 +161,25 @@
 	$lokasi_barang = $_POST["lokasi_barang"];
 	$id_user = $_POST["id_user"];
 	$status = $_POST["status"];
-=======
-<?php
-if (isset($_POST['simpan'])) {
->>>>>>> parent of 02a0fce (clean code)
-=======
-<?php
-if (isset($_POST['simpan'])) {
->>>>>>> parent of 02a0fce (clean code)
 
-	$id_barang = $_POST['id_barang'];
-	$qty = $_POST['qty'];
-	$tgl_mulai = $_POST['tgl_mulai'];
-	$tgl_selesai = $_POST['tgl_selesai'];
-	$lokasi_barang = $_POST['lokasi_barang'];
-	$id_user = $_POST['id_user'];
-	$status = $_POST['status'];
-
-	$email_user = $_POST['email_user'];
-	$email_admin = $_POST['email_admin'];
-	$password_user = $_POST['password_user'];
-	$nama_barang = $_POST['nama_barang'];
+	$email_user = $_POST["email_user"];
+	$email_admin = $_POST["email_admin"];
+	$password_user = $_POST["password_user"];
+	$nama_barang = $_POST["nama_barang"];
 
 	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
-	$sto    = mysqli_fetch_array($selSto);
-	$stok    = $sto['stok'];
+	$sto = mysqli_fetch_array($selSto);
+	$stok = $sto["stok"];
 	//menghitung sisa stok
-	$sisa    = $stok - $qty;
+	$sisa = $stok - $qty;
 
 	if ($stok < $qty) {
 		echo "<script>alert ('Stok Kurang Dari Jumlah Pinjam') </script>";
 	} else {
-		mysqli_query($conn, "INSERT into pinjambarang values ('','$id_barang', '$id_user','$tgl_mulai','$tgl_selesai','$qty','$lokasi_barang','$status')");
+		mysqli_query(
+			$conn,
+			"INSERT into pinjambarang values ('','$id_barang', '$id_user','$tgl_mulai','$tgl_selesai','$qty','$lokasi_barang','$status')"
+		);
 		mysqli_query($conn, "UPDATE barang SET stok='$sisa' WHERE id='$id_barang'");
 	}
 }
