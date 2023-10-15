@@ -1,5 +1,5 @@
 <?php
-include "../koneksi.php";
+include '../koneksi.php';
 session_start();
 ?>
 
@@ -139,30 +139,32 @@ session_start();
 			</div>
 		</div>
 
-		<?php // Dashboard
-		if (@$_GET["view"] == "") {
-			include "dashboard.php";
-		} elseif ($_GET["view"] == "dashboard") {
-			include "dashboard.php";
-		}
+		<?php
+		// Dashboard
+		if (@$_GET['view'] == '')
+			include 'dashboard.php';
+		elseif ($_GET['view'] == 'dashboard')
+			include 'dashboard.php';
 
 		// Data Pinjam Barang
-		elseif ($_GET["view"] == "datapinjambarang") {
-			include "peminjaman/barang/datapinjambarang.php";
-		} elseif ($_GET["view"] == "createpinjambarang") {
-			include "peminjaman/barang/createpinjambarang.php";
-		} elseif ($_GET["view"] == "detailpinjambarang") {
-			include "peminjaman/barang/detailpinjambarang.php";
-		}
+		elseif ($_GET['view'] == 'datapinjambarang')
+			include 'peminjaman/barang/datapinjambarang.php';
+		elseif ($_GET['view'] == 'createpinjambarang')
+			include 'peminjaman/barang/createpinjambarang.php';
+		elseif ($_GET['view'] == 'detailpinjambarang')
+			include 'peminjaman/barang/detailpinjambarang.php';
 
 		// Data Pinjam Ruangan
-		elseif ($_GET["view"] == "datapinjamruangan") {
-			include "peminjaman/ruangan/datapinjamruangan.php";
-		} elseif ($_GET["view"] == "createpinjamruangan") {
-			include "peminjaman/ruangan/createpinjamruangan.php";
-		} elseif ($_GET["view"] == "detailpinjamruangan") {
-			include "peminjaman/ruangan/detailpinjamruangan.php";
-		} ?>
+		elseif ($_GET['view'] == 'datapinjamruangan')
+			include 'peminjaman/ruangan/datapinjamruangan.php';
+
+		elseif ($_GET['view'] == 'createpinjamruangan')
+			include 'peminjaman/ruangan/createpinjamruangan.php';
+
+		elseif ($_GET['view'] == 'detailpinjamruangan')
+			include 'peminjaman/ruangan/detailpinjamruangan.php';
+
+		?>
 
 		<!-- Custom template | don't include it in your project! -->
 		<!-- End Custom template -->

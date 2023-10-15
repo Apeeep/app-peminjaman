@@ -36,9 +36,9 @@
 									<select class="form-control" id="id_barang" onchange="changeValue(this.value)" name="id_barang" required="">
 										<option value="" hidden="">-- Pilih Barang --</option>
 										<?php
-										$query = mysqli_query($conn, "SELECT * from barang");
-										$stok = "var stok 		= new Array();\n;";
-										$deskripsi = "var deskripsi   = new Array();\n;";
+										$query       = mysqli_query($conn, 'SELECT * from barang');
+										$stok 	     = "var stok 		= new Array();\n;";
+										$deskripsi   = "var deskripsi   = new Array();\n;";
 										$nama_barang = "var nama_barang = new Array();\n;";
 										$foto        = "var foto = new Array();\n;";
 										while ($row = mysqli_fetch_array($query)) {
@@ -98,10 +98,8 @@
 
 								<div class="form-group">
 									<label>Tgl Mulai Pinjam</label>
-									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php
-																												date_default_timezone_set("Asia/Jakarta");
-																												echo date("Y-m-d H:i:s");
-																												?>">
+									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php date_default_timezone_set("Asia/Jakarta");
+																												echo date('Y-m-d H:i:s') ?>">
 								</div>
 
 								<div class="form-group">
@@ -114,7 +112,7 @@
 									<textarea class="form-control" name="lokasi_barang" rows="5" placeholder="Lokasi Barang ..." style="white-space: pre-line;"></textarea>
 								</div> -->
 
-								<input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
+								<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'] ?>">
 								<input type="hidden" name="email_admin" value="emailpenerima@gmail.com">
 								<input type="hidden" name="status" value="menunggu">
 
@@ -154,6 +152,7 @@
 </script>
 
 
+<<<<<<< HEAD
 
 
 
@@ -167,25 +166,34 @@
 	$lokasi_barang = $_POST["lokasi_barang"];
 	$id_user = $_POST["id_user"];
 	$status = $_POST["status"];
+=======
+<?php
+if (isset($_POST['simpan'])) {
+>>>>>>> parent of 02a0fce (clean code)
 
-	$email_user = $_POST["email_user"];
-	$email_admin = $_POST["email_admin"];
-	$password_user = $_POST["password_user"];
-	$nama_barang = $_POST["nama_barang"];
+	$id_barang = $_POST['id_barang'];
+	$qty = $_POST['qty'];
+	$tgl_mulai = $_POST['tgl_mulai'];
+	$tgl_selesai = $_POST['tgl_selesai'];
+	$lokasi_barang = $_POST['lokasi_barang'];
+	$id_user = $_POST['id_user'];
+	$status = $_POST['status'];
+
+	$email_user = $_POST['email_user'];
+	$email_admin = $_POST['email_admin'];
+	$password_user = $_POST['password_user'];
+	$nama_barang = $_POST['nama_barang'];
 
 	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
-	$sto = mysqli_fetch_array($selSto);
-	$stok = $sto["stok"];
+	$sto    = mysqli_fetch_array($selSto);
+	$stok    = $sto['stok'];
 	//menghitung sisa stok
-	$sisa = $stok - $qty;
+	$sisa    = $stok - $qty;
 
 	if ($stok < $qty) {
 		echo "<script>alert ('Stok Kurang Dari Jumlah Pinjam') </script>";
 	} else {
-		mysqli_query(
-			$conn,
-			"INSERT into pinjambarang values ('','$id_barang', '$id_user','$tgl_mulai','$tgl_selesai','$qty','$lokasi_barang','$status')"
-		);
+		mysqli_query($conn, "INSERT into pinjambarang values ('','$id_barang', '$id_user','$tgl_mulai','$tgl_selesai','$qty','$lokasi_barang','$status')");
 		mysqli_query($conn, "UPDATE barang SET stok='$sisa' WHERE id='$id_barang'");
 	}
 }
