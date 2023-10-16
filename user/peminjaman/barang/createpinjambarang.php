@@ -36,21 +36,17 @@
 									<select class="form-control" id="id_barang" onchange="changeValue(this.value)" name="id_barang" required="">
 										<option value="" hidden="">-- Pilih Barang --</option>
 										<?php
-										$query = mysqli_query($conn, "SELECT * from barang");
-										$stok = "var stok 		= new Array();\n;";
-										$deskripsi = "var deskripsi   = new Array();\n;";
+										$query       = mysqli_query($conn, 'SELECT * from barang');
+										$stok 	     = "var stok 		= new Array();\n;";
+										$deskripsi   = "var deskripsi   = new Array();\n;";
 										$nama_barang = "var nama_barang = new Array();\n;";
+										$foto        = "var foto = new Array();\n;";
 										while ($row = mysqli_fetch_array($query)) {
-											echo '<option value="' . $row["id"] . '">' . $row["nama_barang"] . "</option>";
-											$stok .= "stok['" . $row["id"] . "'] = {stok:'" . addslashes($row["stok"]) . "'};\n";
-											$deskripsi .=
-												"deskripsi['" . $row["id"] . "'] = {deskripsi:'" . addslashes($row["deskripsi"]) . "'};\n";
-											$nama_barang .=
-												"nama_barang['" .
-												$row["id"] .
-												"'] = {nama_barang:'" .
-												addslashes($row["nama_barang"]) .
-												"'};\n";
+											echo '<option value="' . $row['id'] . '">' . $row['nama_barang'] . '</option>';
+											$stok .= "stok['" . $row['id'] . "'] = {stok:'" . addslashes($row['stok']) . "'};\n";
+											$deskripsi .= "deskripsi['" . $row['id'] . "'] = {deskripsi:'" . addslashes($row['deskripsi']) . "'};\n";
+											$nama_barang .= "nama_barang['" . $row['id'] . "'] = {nama_barang:'" . addslashes($row['nama_barang']) . "'};\n";
+											$foto .= "foto['" . $row['id'] . "'] = {foto:'" . addslashes($row['foto']) . "'};\n";
 										}
 										?>
 									</select>
@@ -65,8 +61,15 @@
 
 								<div class="form-group">
 									<label>Deskripsi</label>
-									<textarea readonly="" style="white-space: pre-line;" id="deskripsi" rows="5" class="form-control"></textarea>
+									<textarea readonly="" style="white-space: pre-line;" id="deskripsi" rows="3" class="form-control"></textarea>
 								</div>
+
+								<div class="form-group">
+									<label>Gambar Barang</label>
+									<img id="foto" src="" style="width: 450px; height: 350px;" class="form-control">
+								</div>
+
+
 
 							</div>
 
@@ -80,14 +83,14 @@
 						</div>
 						<form method="POST" action="" enctype="multipart/form-data">
 							<div class="card-body">
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label>Email Pengirim</label>
 									<input type="email" name="email_user" placeholder="Email Pengirim ..." class="form-control" required="">
 								</div>
 								<div class="form-group">
 									<label>Password Pengirim</label>
 									<input type="password" name="password_user" placeholder="Password Pengirim ..." class="form-control" required="">
-								</div>
+								</div> -->
 
 								<div class="form-group">
 									<label>Jumlah Pinjam Barang</label>
@@ -107,12 +110,12 @@
 									<input type="datetime-local" name="tgl_selesai" class="form-control">
 								</div>
 
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label>Lokasi Barang</label>
 									<textarea class="form-control" name="lokasi_barang" rows="5" placeholder="Lokasi Barang ..." style="white-space: pre-line;"></textarea>
-								</div>
+								</div> -->
 
-								<input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
+								<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'] ?>">
 								<input type="hidden" name="email_admin" value="emailpenerima@gmail.com">
 								<input type="hidden" name="status" value="menunggu">
 
@@ -128,7 +131,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
+		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
 	</center>
 </div>
 
@@ -137,29 +140,36 @@
 	echo $stok;
 	echo $deskripsi;
 	echo $nama_barang;
+	echo $foto;
 	?>
 
-	function changeValue(id) {
-		document.getElementById('stok').value = stok[id].stok;
-		document.getElementById('deskripsi').value = deskripsi[id].deskripsi;
-		document.getElementById('nama_barang').value = nama_barang[id].nama_barang;
-	};
+	function changeValue(id_barang) {
+		var indeks = parseInt(id_barang);
+		if (!isNaN(indeks)) {
+			document.getElementById('stok').value = stok[indeks].stok;
+			document.getElementById('deskripsi').value = deskripsi[indeks].deskripsi;
+			document.getElementById('nama_barang').value = nama_barang[indeks].nama_barang;
+			document.getElementById('foto').src = "../admin/master/barang/Fotobarang/" + foto[indeks].foto;
+		}
+	}
 </script>
 
 
-<?php if (isset($_POST["simpan"])) {
-	$id_barang = $_POST["id_barang"];
-	$qty = $_POST["qty"];
-	$tgl_mulai = $_POST["tgl_mulai"];
-	$tgl_selesai = $_POST["tgl_selesai"];
-	$lokasi_barang = $_POST["lokasi_barang"];
-	$id_user = $_POST["id_user"];
-	$status = $_POST["status"];
+<?php
+if (isset($_POST['simpan'])) {
 
-	$email_user = $_POST["email_user"];
-	$email_admin = $_POST["email_admin"];
-	$password_user = $_POST["password_user"];
-	$nama_barang = $_POST["nama_barang"];
+	$id_barang = $_POST['id_barang'];
+	$qty = $_POST['qty'];
+	$tgl_mulai = $_POST['tgl_mulai'];
+	$tgl_selesai = $_POST['tgl_selesai'];
+	$lokasi_barang = $_POST['lokasi_barang'];
+	$id_user = $_POST['id_user'];
+	$status = $_POST['status'];
+
+	$email_user = $_POST['email_user'];
+	$email_admin = $_POST['email_admin'];
+	$password_user = $_POST['password_user'];
+	$nama_barang = $_POST['nama_barang'];
 
 	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
 	$sto = mysqli_fetch_array($selSto);

@@ -131,6 +131,6 @@ $z = mysqli_fetch_array($t);
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
+		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
 	</center>
 </div>
