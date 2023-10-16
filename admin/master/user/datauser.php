@@ -45,6 +45,8 @@
 											<th>Email</th>
 											<th>Username</th>
 											<th>Level</th>
+											<th>Kelas</th>
+											<th>Praktek</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -52,22 +54,24 @@
 									<tbody>
 										<?php
 										$no = 1;
-										$query = mysqli_query($conn, "SELECT * from user");
-										while ($user = mysqli_fetch_array($query)) { ?>
+										$query = mysqli_query($conn, 'SELECT * from user');
+										while ($user = mysqli_fetch_array($query)) {
+										?>
 											<tr>
-												<td><?php echo $no++; ?></td>
-												<td><?php echo $user["nama_lengkap"]; ?></td>
-												<td><?php echo $user["email"]; ?></td>
-												<td><?php echo $user["username"]; ?></td>
-												<td><?php echo $user["level"]; ?></td>
+												<td><?php echo $no++ ?></td>
+												<td><?php echo $user['nama_lengkap'] ?></td>
+												<td><?php echo $user['email'] ?></td>
+												<td><?php echo $user['username'] ?></td>
+												<td><?php echo $user['level'] ?></td>
+												<td><?php echo $user['kelas'] ?></td>
+												<td><?php echo $user['praktek'] ?></td>
 												<td>
-													<a href="#modalDetailUser<?php echo $user["id"]; ?>" data-toggle="modal" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-													<a href="#modalEditUser<?php echo $user["id"]; ?>" data-toggle="modal" title="Edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
-													<a href="#modalHapusUser<?php echo $user["id"]; ?>" data-toggle="modal" title="Hapus" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+													<a href="#modalDetailUser<?php echo $user['id'] ?>" data-toggle="modal" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+													<a href="#modalEditUser<?php echo $user['id'] ?>" data-toggle="modal" title="Edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+													<a href="#modalHapusUser<?php echo $user['id'] ?>" data-toggle="modal" title="Hapus" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 												</td>
 											</tr>
-										<?php }
-										?>
+										<?php } ?>
 									</tbody>
 								</table>
 							</div>
@@ -78,7 +82,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
+		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
 	</center>
 </div>
 
@@ -112,6 +116,14 @@
 						<input type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
 					</div>
 					<div class="form-group">
+						<label>Kelas</label>
+						<input type="text" name="kelas" class="form-control" placeholder="Kelas ..." required="">
+					</div>
+					<div class="form-group">
+						<label>Praktek</label>
+						<input type="text" name="praktek" class="form-control" placeholder="Praktek ..." required="">
+					</div>
+					<div class="form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control" placeholder="Username ..." required="">
 					</div>
@@ -137,10 +149,11 @@
 </div>
 
 <?php
-$p = mysqli_query($conn, "SELECT * from user");
-while ($d = mysqli_fetch_array($p)) { ?>
+$p = mysqli_query($conn, 'SELECT * from user');
+while ($d = mysqli_fetch_array($p)) {
+?>
 
-	<div class="modal fade" id="modalEditUser<?php echo $d["id"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="modalEditUser<?php echo $d['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header no-bd">
@@ -157,26 +170,34 @@ while ($d = mysqli_fetch_array($p)) { ?>
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
 					<div class="modal-body">
-						<input type="hidden" name="id" value="<?php echo $d["id"]; ?>">
+						<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
 						<div class="form-group">
 							<label>Nama Lengkap</label>
-							<input value="<?php echo $d["nama_lengkap"]; ?>" type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
+							<input value="<?php echo $d['nama_lengkap'] ?>" type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input value="<?php echo $d["email"]; ?>" type="email" name="email" class="form-control" placeholder="Email ..." required="">
+							<input value="<?php echo $d['email'] ?>" type="email" name="email" class="form-control" placeholder="Email ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Nomor HP</label>
-							<input value="<?php echo $d["nohp"]; ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
+							<input value="<?php echo $d['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
+						</div>
+						<div class="form-group">
+							<label>Kelas</label>
+							<input value="<?php echo $d['kelas'] ?>" type="text" name="kelas" class="form-control" placeholder="Kelas ..." required="">
+						</div>
+						<div class="form-group">
+							<label>Praktek</label>
+							<input value="<?php echo $d['praktek'] ?>" type="text" name="praktek" class="form-control" placeholder="Praktek ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Username</label>
-							<input value="<?php echo $d["username"]; ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
+							<input value="<?php echo $d['username'] ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input value="<?php echo $d["password"]; ?>" type="password" name="password" class="form-control" placeholder="Password ..." required="">
+							<input value="<?php echo $d['password'] ?>" type="password" name="password" class="form-control" placeholder="Password ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Level</label>
@@ -195,14 +216,14 @@ while ($d = mysqli_fetch_array($p)) { ?>
 		</div>
 	</div>
 
-<?php }
-?>
+<?php } ?>
 
 <?php
-$c = mysqli_query($conn, "SELECT * from user");
-while ($row = mysqli_fetch_array($c)) { ?>
+$c = mysqli_query($conn, 'SELECT * from user');
+while ($row = mysqli_fetch_array($c)) {
+?>
 
-	<div class="modal fade" id="modalHapusUser<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="modalHapusUser<?php echo $row['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header no-bd">
@@ -219,7 +240,7 @@ while ($row = mysqli_fetch_array($c)) { ?>
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
 					<div class="modal-body">
-						<input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+						<input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 						<h4>Apakah Anda Ingin Menghapus User Ini ?</h4>
 					</div>
 					<div class="modal-footer no-bd">
@@ -231,14 +252,14 @@ while ($row = mysqli_fetch_array($c)) { ?>
 		</div>
 	</div>
 
-<?php }
-?>
+<?php } ?>
 
 <?php
-$q = mysqli_query($conn, "SELECT * from user");
-while ($k = mysqli_fetch_array($q)) { ?>
+$q = mysqli_query($conn, 'SELECT * from user');
+while ($k = mysqli_fetch_array($q)) {
+?>
 
-	<div class="modal fade" id="modalDetailUser<?php echo $k["id"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="modalDetailUser<?php echo $k['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header no-bd">
@@ -255,30 +276,38 @@ while ($k = mysqli_fetch_array($q)) { ?>
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
 					<div class="modal-body">
-						<input type="hidden" name="id" value="<?php echo $k["id"]; ?>">
+						<input type="hidden" name="id" value="<?php echo $k['id'] ?>">
 						<div class="form-group">
 							<label>Nama Lengkap</label>
-							<input readonly value="<?php echo $k["nama_lengkap"]; ?>" type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
+							<input readonly value="<?php echo $k['nama_lengkap'] ?>" type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Email</label>
-							<input readonly value="<?php echo $k["email"]; ?>" type="email" name="email" class="form-control" placeholder="Email ..." required="">
+							<input readonly value="<?php echo $k['email'] ?>" type="email" name="email" class="form-control" placeholder="Email ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Nomor HP</label>
-							<input readonly value="<?php echo $k["nohp"]; ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
+							<input readonly value="<?php echo $k['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
+						</div>
+						<div class="form-group">
+							<label>Kelas</label>
+							<input readonly value="<?php echo $k['kelas'] ?>" type="text" name="Kelas" class="form-control" placeholder="Kelas ..." required="">
+						</div>
+						<div class="form-group">
+							<label>Praktek</label>
+							<input readonly value="<?php echo $k['praktek'] ?>" type="text" name="Praktek" class="form-control" placeholder="Praktek ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Username</label>
-							<input readonly value="<?php echo $k["username"]; ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
+							<input readonly value="<?php echo $k['username'] ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input readonly value="<?php echo $k["password"]; ?>" type="password" name="password" class="form-control" placeholder="Password ..." required="">
+							<input readonly value="<?php echo $k['password'] ?>" type="password" name="password" class="form-control" placeholder="Password ..." required="">
 						</div>
 						<div class="form-group">
 							<label>Level</label>
-							<input readonly value="<?php echo $k["level"]; ?>" type="text" name="nama_barang" class="form-control" placeholder="Nama Barang ..." required="">
+							<input readonly value="<?php echo $k['level'] ?>" type="text" name="nama_barang" class="form-control" placeholder="Nama Barang ..." required="">
 						</div>
 					</div>
 					<div class="modal-footer no-bd">
@@ -289,38 +318,39 @@ while ($k = mysqli_fetch_array($q)) { ?>
 		</div>
 	</div>
 
-<?php }
-?>
-<?php if (isset($_POST["simpan"])) {
-	$nama_lengkap = $_POST["nama_lengkap"];
-	$email = $_POST["email"];
-	$nohp = $_POST["nohp"];
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-	$level = $_POST["level"];
-	mysqli_query(
-		$conn,
-		"INSERT into user values ('','$nama_lengkap', '$email', '$nohp', '$username', '$password', '$level')"
-	);
+<?php } ?>
+<?php
+if (isset($_POST['simpan'])) {
+	$nama_lengkap = $_POST['nama_lengkap'];
+	$email = $_POST['email'];
+	$nohp = $_POST['nohp'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$level = $_POST['level'];
+	$kelas = $_POST['kelas'];
+	$praktek = $_POST['praktek'];
+
+	mysqli_query($conn, "INSERT into user values ('','$nama_lengkap', '$email', '$nohp', '$username', '$password', '$level', '$kelas', '$praktek')");
 	echo "<script>alert ('User Berhasil Disimpan') </script>";
 	echo "<meta http-equiv='refresh' content=0; URL=?view=datauser>";
-} elseif (isset($_POST["ubah"])) {
-	$id = $_POST["id"];
-	$nama_lengkap = $_POST["nama_lengkap"];
-	$email = $_POST["email"];
-	$nohp = $_POST["nohp"];
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-	$level = $_POST["level"];
-	mysqli_query(
-		$conn,
-		"UPDATE user set id='$id', nama_lengkap='$nama_lengkap', email='$email', nohp='$nohp', username='$username', password='$password', level='$level' where id='$id'"
-	);
+} elseif (isset($_POST['ubah'])) {
+	$id = $_POST['id'];
+	$nama_lengkap = $_POST['nama_lengkap'];
+	$email = $_POST['email'];
+	$nohp = $_POST['nohp'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$level = $_POST['level'];
+	$kelas = $_POST['kelas'];
+	$praktek = $_POST['praktek'];
+
+	mysqli_query($conn, "UPDATE user set id='$id', nama_lengkap='$nama_lengkap', email='$email', nohp='$nohp', username='$username', password='$password', level='$level', kelas='$kelas', praktek='$praktek' where id='$id'");
 	echo "<script>alert ('User Berhasil Diubah') </script>";
 	echo "<meta http-equiv='refresh' content=0; URL=?view=datauser>";
-} elseif (isset($_POST["hapus"])) {
-	$id = $_POST["id"];
+} elseif (isset($_POST['hapus'])) {
+	$id = $_POST['id'];
 	mysqli_query($conn, "DELETE from user where id='$id'");
 	echo "<script>alert ('User Berhasil Dihapus') </script>";
 	echo "<meta http-equiv='refresh' content=0; URL=?view=datauser>";
-} ?>
+}
+?>
