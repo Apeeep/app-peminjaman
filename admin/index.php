@@ -107,7 +107,7 @@ session_start();
 								<span class="caret"></span>
 							</a>
 							<div class="collapse" id="base">
-								<ul class="nav nav-collapse"> -->
+								<ul class="nav nav-collapse">
 									<li class="nav-item">
 										<a href="?view=datauser">
 											<i class="fas fa-user"></i>
@@ -136,6 +136,7 @@ session_start();
 									</li>
 								</ul>
 							</div>
+					</ul>
 				</div>
 			</div>
 
