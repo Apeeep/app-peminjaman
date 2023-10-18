@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Peminjaman</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon" />
+	<link rel="icon" href="assets/img/logogundar.png" type="image/x-icon" />
+
+	<style>
+		.wrapper.wrapper-login {
+			background-image: url('assets/img/veloz.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.copyright {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #e5e3e3;
+			font-size: 12px;
+		}
+	</style>
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
@@ -91,7 +109,7 @@
 
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2020|GPIB CINERE|</b></h6>
+		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
 	</center>
 	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
 	<script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>

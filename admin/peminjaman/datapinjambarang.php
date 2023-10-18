@@ -51,9 +51,11 @@
 									<tbody>
 										<?php
 										$no = 1;
-										$query = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
-										while ($pinjambarang = mysqli_fetch_array($query)) {
-										?>
+										$query = mysqli_query(
+											$conn,
+											"SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang, user.nama_lengkap from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user"
+										);
+										while ($pinjambarang = mysqli_fetch_array($query)) { ?>
 											<tr>
 												<td><?php echo $no++ ?></td>
 												<td><?php echo $pinjambarang['nama_lengkap'] ?></td>

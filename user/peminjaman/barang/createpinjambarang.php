@@ -113,7 +113,7 @@
 									<textarea class="form-control" name="lokasi_barang" rows="5" placeholder="Lokasi Barang ..." style="white-space: pre-line;"></textarea>
 								</div>
 
-								<input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
+								<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'] ?>">
 								<input type="hidden" name="email_admin" value="emailpenerima@gmail.com">
 								<input type="hidden" name="status" value="menunggu">
 
@@ -153,19 +153,21 @@
 </script>
 
 
-<?php if (isset($_POST["simpan"])) {
-	$id_barang = $_POST["id_barang"];
-	$qty = $_POST["qty"];
-	$tgl_mulai = $_POST["tgl_mulai"];
-	$tgl_selesai = $_POST["tgl_selesai"];
-	$lokasi_barang = $_POST["lokasi_barang"];
-	$id_user = $_POST["id_user"];
-	$status = $_POST["status"];
+<?php
+if (isset($_POST['simpan'])) {
 
-	$email_user = $_POST["email_user"];
-	$email_admin = $_POST["email_admin"];
-	$password_user = $_POST["password_user"];
-	$nama_barang = $_POST["nama_barang"];
+	$id_barang = $_POST['id_barang'];
+	$qty = $_POST['qty'];
+	$tgl_mulai = $_POST['tgl_mulai'];
+	$tgl_selesai = $_POST['tgl_selesai'];
+	$lokasi_barang = $_POST['lokasi_barang'];
+	$id_user = $_POST['id_user'];
+	$status = $_POST['status'];
+
+	$email_user = $_POST['email_user'];
+	$email_admin = $_POST['email_admin'];
+	$password_user = $_POST['password_user'];
+	$nama_barang = $_POST['nama_barang'];
 
 	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
 	$sto = mysqli_fetch_array($selSto);
