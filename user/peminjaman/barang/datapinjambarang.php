@@ -53,6 +53,7 @@
 									<tbody>
 										<?php
 										$no = 1;
+<<<<<<< HEAD
 										$query = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
 										while ($pinjambarang = mysqli_fetch_array($query)) {
 										?>
@@ -80,11 +81,47 @@
 														<?php } else { ?>
 															<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang['id'] ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
 															<div class="badge badge-success"><?php echo $pinjambarang['status'] ?></div>
+=======
+										$query = mysqli_query(
+											$conn,
+											"SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user"
+										);
+										while ($pinjambarang = mysqli_fetch_array($query)) { ?>
+											<?php if ($_SESSION["id"] == $pinjambarang["id_user"]) { ?>
+												<tr>
+													<td><?php echo $no++; ?></td>
+													<td><?php echo $pinjambarang["nama_barang"]; ?></td>
+													<td><?php echo $pinjambarang["tgl_mulai"]; ?></td>
+													<td><?php echo $pinjambarang["tgl_selesai"]; ?></td>
+													<td><?php echo $pinjambarang["qty"]; ?></td>
+													<td>
+														<?php if ($pinjambarang["status"] == "menunggu") { ?>
+															<div class="badge badge-danger"><?php echo $pinjambarang["status"]; ?></div>
+														<?php } else { ?>
+															<div class="badge badge-success"><?php echo $pinjambarang["status"]; ?></div>
+														<?php } ?>
+													</td>
+													<td>
+														<?php if ($pinjambarang["status"] == "menunggu") { ?>
+															<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang["id"]; ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+															<a href="#modalHapusPinjamBarang<?php echo $pinjambarang["id"]; ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Batal</a>
+														<?php } elseif ($pinjambarang["status"] == "approve") { ?>
+															<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang["id"]; ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+															<a href="#modalKembalikanPinjamBarang<?php echo $pinjambarang["id"]; ?>" data-toggle="modal" title="Kembalikan" class="btn btn-xs btn-warning"><i class="fa fa-warning"></i> Kembalikan</a>
+														<?php } else { ?>
+															<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang["id"]; ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+															<div class="badge badge-success"><?php echo $pinjambarang["status"]; ?></div>
+>>>>>>> origin/backup
 														<?php } ?>
 													</td>
 												</tr>
 											<?php } ?>
+<<<<<<< HEAD
 										<?php } ?>
+=======
+										<?php }
+										?>
+>>>>>>> origin/backup
 									</tbody>
 								</table>
 							</div>
@@ -101,11 +138,21 @@
 
 
 <?php
+<<<<<<< HEAD
 $c = mysqli_query($conn, 'SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user');
 while ($row = mysqli_fetch_array($c)) {
 ?>
 
 	<div class="modal fade" id="modalHapusPinjamBarang<?php echo $row['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+=======
+$c = mysqli_query(
+	$conn,
+	"SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user"
+);
+while ($row = mysqli_fetch_array($c)) { ?>
+
+	<div class="modal fade" id="modalHapusPinjamBarang<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+>>>>>>> origin/backup
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header no-bd">
@@ -122,9 +169,15 @@ while ($row = mysqli_fetch_array($c)) {
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
 					<div class="modal-body">
+<<<<<<< HEAD
 						<input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 						<input type="hidden" name="id_barang" value="<?php echo $row['id_barang'] ?>">
 						<input type="hidden" name="qty" value="<?php echo $row['qty'] ?>">
+=======
+						<input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+						<input type="hidden" name="id_barang" value="<?php echo $row["id_barang"]; ?>">
+						<input type="hidden" name="qty" value="<?php echo $row["qty"]; ?>">
+>>>>>>> origin/backup
 						<h4>Apakah Anda Ingin Membatalkan Pinjamanan Ini ?</h4>
 					</div>
 					<div class="modal-footer no-bd">
@@ -136,6 +189,7 @@ while ($row = mysqli_fetch_array($c)) {
 		</div>
 	</div>
 
+<<<<<<< HEAD
 <?php } ?>
 
 <?php
@@ -144,6 +198,19 @@ while ($row = mysqli_fetch_array($c)) {
 ?>
 
 	<div class="modal fade" id="modalKembalikanPinjamBarang<?php echo $row['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+=======
+<?php }
+?>
+
+<?php
+$c = mysqli_query(
+	$conn,
+	"SELECT pinjambarang.id, pinjambarang.id_barang, pinjambarang.id_user, pinjambarang.tgl_mulai, pinjambarang.tgl_selesai, pinjambarang.qty, pinjambarang.lokasi_barang, pinjambarang.status, barang.nama_barang from pinjambarang inner join barang on barang.id=pinjambarang.id_barang inner join user on user.id=pinjambarang.id_user"
+);
+while ($row = mysqli_fetch_array($c)) { ?>
+
+	<div class="modal fade" id="modalKembalikanPinjamBarang<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+>>>>>>> origin/backup
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header no-bd">
@@ -160,9 +227,15 @@ while ($row = mysqli_fetch_array($c)) {
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
 					<div class="modal-body">
+<<<<<<< HEAD
 						<input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 						<input type="hidden" name="id_barang" value="<?php echo $row['id_barang'] ?>">
 						<input type="hidden" name="qty" value="<?php echo $row['qty'] ?>">
+=======
+						<input type="hidden" name="id" value="<?php echo $row["id"]; ?>">
+						<input type="hidden" name="id_barang" value="<?php echo $row["id_barang"]; ?>">
+						<input type="hidden" name="qty" value="<?php echo $row["qty"]; ?>">
+>>>>>>> origin/backup
 						<input type="hidden" name="status" value="selesai">
 						<h4>Apakah Anda Ingin Mengembalikan Pinjamanan Ini ?</h4>
 					</div>
@@ -175,6 +248,7 @@ while ($row = mysqli_fetch_array($c)) {
 		</div>
 	</div>
 
+<<<<<<< HEAD
 <?php } ?>
 
 <?php
@@ -187,11 +261,26 @@ if (isset($_POST['hapus'])) {
 	$sto    = mysqli_fetch_array($selSto);
 	$stok   = $sto['stok'];
 	$sisa    = $stok + $qty;
+=======
+<?php }
+?>
+
+<?php if (isset($_POST["hapus"])) {
+	$id = $_POST["id"];
+	$id_barang = $_POST["id_barang"];
+	$qty = $_POST["qty"];
+
+	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
+	$sto = mysqli_fetch_array($selSto);
+	$stok = $sto["stok"];
+	$sisa = $stok + $qty;
+>>>>>>> origin/backup
 
 	mysqli_query($conn, "UPDATE barang SET stok='$sisa' WHERE id='$id_barang'");
 	mysqli_query($conn, "DELETE from pinjambarang where id='$id'");
 	echo "<script>alert ('Data Berhasil Dihapus') </script>";
 	echo "<meta http-equiv='refresh' content=0; URL=?view=datapinjambarang>";
+<<<<<<< HEAD
 } elseif (isset($_POST['ubah'])) {
 	$id = $_POST['id'];
 	$id_barang = $_POST['id_barang'];
@@ -202,6 +291,18 @@ if (isset($_POST['hapus'])) {
 	$sto    = mysqli_fetch_array($selSto);
 	$stok   = $sto['stok'];
 	$sisa    = $stok + $qty;
+=======
+} elseif (isset($_POST["ubah"])) {
+	$id = $_POST["id"];
+	$id_barang = $_POST["id_barang"];
+	$qty = $_POST["qty"];
+	$status = $_POST["status"];
+
+	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
+	$sto = mysqli_fetch_array($selSto);
+	$stok = $sto["stok"];
+	$sisa = $stok + $qty;
+>>>>>>> origin/backup
 
 	mysqli_query($conn, "UPDATE barang SET stok='$sisa' WHERE id='$id_barang'");
 	mysqli_query($conn, "UPDATE pinjambarang set status='$status' where id='$id'");

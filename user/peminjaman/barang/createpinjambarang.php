@@ -99,8 +99,15 @@
 
 								<div class="form-group">
 									<label>Tgl Mulai Pinjam</label>
+<<<<<<< HEAD
 									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php date_default_timezone_set("Asia/Jakarta");
 																												echo date('Y-m-d H:i:s') ?>">
+=======
+									<input type="text" readonly="" name="tgl_mulai" class="form-control" value="<?php
+																												date_default_timezone_set("Asia/Jakarta");
+																												echo date("Y-m-d H:i:s");
+																												?>">
+>>>>>>> origin/backup
 								</div>
 
 								<div class="form-group">
@@ -141,6 +148,7 @@
 	echo $foto;
 	?>
 
+<<<<<<< HEAD
 function changeValue(id_barang) {
         var indeks = parseInt(id_barang);
         if (!isNaN(indeks)) {
@@ -158,6 +166,20 @@ function changeValue(id_barang) {
 
 
 
+=======
+	function changeValue(id_barang) {
+		var indeks = parseInt(id_barang);
+		if (!isNaN(indeks)) {
+			document.getElementById('stok').value = stok[indeks].stok;
+			document.getElementById('deskripsi').value = deskripsi[indeks].deskripsi;
+			document.getElementById('nama_barang').value = nama_barang[indeks].nama_barang;
+			document.getElementById('foto').src = "../admin/master/barang/Fotobarang/" + foto[indeks].foto;
+		}
+	}
+</script>
+
+
+>>>>>>> origin/backup
 <?php
 if (isset($_POST['simpan'])) {
 
@@ -175,15 +197,29 @@ if (isset($_POST['simpan'])) {
 	$nama_barang = $_POST['nama_barang'];
 
 	$selSto = mysqli_query($conn, "SELECT * FROM barang WHERE id='$id_barang'");
+<<<<<<< HEAD
 	$sto    = mysqli_fetch_array($selSto);
 	$stok    = $sto['stok'];
 	//menghitung sisa stok
 	$sisa    = $stok - $qty;
+=======
+	$sto = mysqli_fetch_array($selSto);
+	$stok = $sto["stok"];
+	//menghitung sisa stok
+	$sisa = $stok - $qty;
+>>>>>>> origin/backup
 
 	if ($stok < $qty) {
 		echo "<script>alert ('Stok Kurang Dari Jumlah Pinjam') </script>";
 	} else {
+<<<<<<< HEAD
 		mysqli_query($conn, "INSERT into pinjambarang values ('','$id_barang', '$id_user','$tgl_mulai','$tgl_selesai','$qty','$lokasi_barang','$status')");
+=======
+		mysqli_query(
+			$conn,
+			"INSERT into pinjambarang values ('','$id_barang', '$id_user','$tgl_mulai','$tgl_selesai','$qty','$lokasi_barang','$status')"
+		);
+>>>>>>> origin/backup
 		mysqli_query($conn, "UPDATE barang SET stok='$sisa' WHERE id='$id_barang'");
 	}
 }

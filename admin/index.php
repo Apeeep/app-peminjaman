@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 include '../koneksi.php';
+=======
+include "../koneksi.php";
+>>>>>>> origin/backup
 session_start();
 ?>
 

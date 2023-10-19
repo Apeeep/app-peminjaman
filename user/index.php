@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 include '../koneksi.php';
+=======
+include "../koneksi.php";
+>>>>>>> origin/backup
 session_start();
 ?>
 
@@ -139,6 +143,7 @@ session_start();
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<?php
 		// Dashboard
 		if (@$_GET['view'] == '')
@@ -165,6 +170,32 @@ session_start();
 			include 'peminjaman/ruangan/detailpinjamruangan.php';
 
 		?>
+=======
+		<?php // Dashboard
+		if (@$_GET["view"] == "") {
+			include "dashboard.php";
+		} elseif ($_GET["view"] == "dashboard") {
+			include "dashboard.php";
+		}
+
+		// Data Pinjam Barang
+		elseif ($_GET["view"] == "datapinjambarang") {
+			include "peminjaman/barang/datapinjambarang.php";
+		} elseif ($_GET["view"] == "createpinjambarang") {
+			include "peminjaman/barang/createpinjambarang.php";
+		} elseif ($_GET["view"] == "detailpinjambarang") {
+			include "peminjaman/barang/detailpinjambarang.php";
+		}
+
+		// Data Pinjam Ruangan
+		elseif ($_GET["view"] == "datapinjamruangan") {
+			include "peminjaman/ruangan/datapinjamruangan.php";
+		} elseif ($_GET["view"] == "createpinjamruangan") {
+			include "peminjaman/ruangan/createpinjamruangan.php";
+		} elseif ($_GET["view"] == "detailpinjamruangan") {
+			include "peminjaman/ruangan/detailpinjamruangan.php";
+		} ?>
+>>>>>>> origin/backup
 
 		<!-- Custom template | don't include it in your project! -->
 		<!-- End Custom template -->
