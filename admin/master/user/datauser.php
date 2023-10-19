@@ -42,11 +42,14 @@
 										<tr>
 											<th>No</th>
 											<th>Nama Lengkap</th>
+											<th>Nama Dosen</th>
+											<th>Mata Kuliah</th>
+											<th>Semester</th>
 											<th>Email</th>
 											<th>Username</th>
 											<th>Level</th>
 											<th>Kelas</th>
-											<th>Praktek</th>
+											<th>Perasat</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -60,11 +63,14 @@
 											<tr>
 												<td><?php echo $no++ ?></td>
 												<td><?php echo $user['nama_lengkap'] ?></td>
+												<td><?php echo $user['nama_dosen'] ?></td>
+												<td><?php echo $user['matkul'] ?></td>
+												<td><?php echo $user['semester'] ?></td>
 												<td><?php echo $user['email'] ?></td>
 												<td><?php echo $user['username'] ?></td>
 												<td><?php echo $user['level'] ?></td>
 												<td><?php echo $user['kelas'] ?></td>
-												<td><?php echo $user['praktek'] ?></td>
+												<td><?php echo $user['perasat'] ?></td>
 												<td>
 													<a href="#modalDetailUser<?php echo $user['id'] ?>" data-toggle="modal" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
 													<a href="#modalEditUser<?php echo $user['id'] ?>" data-toggle="modal" title="Edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
@@ -88,7 +94,7 @@
 
 <div class="modal fade" id="modalAddUser" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content">
+		<div class="modal-content px-2">
 			<div class="modal-header no-bd">
 				<h5 class="modal-title">
 					<span class="fw-mediumbold">
@@ -102,36 +108,64 @@
 				</button>
 			</div>
 			<form method="POST" enctype="multipart/form-data" action="">
-				<div class="modal-body">
-					<div class="form-group">
+				<div class="modal-body row">
+					<div class="form-group col-6">
 						<label>Nama Lengkap</label>
 						<input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
 					</div>
-					<div class="form-group">
+					<div class="form-group col-6">
+						<label>Nama Dosen</label>
+						<input type="text" name="nama_dosen" class="form-control" placeholder="Nama Dosen ..." required="">
+					</div>
+					<div class="form-group col-6">
+						<label>Nama Mata Kuliah</label>
+						<input type="text" name="matkul" class="form-control" placeholder="Nama Mata Kuliah ..." required="">
+					</div>
+					<div class="form-group col-6">
+						<label>Semester</label>
+						<select class="form-control" name="semester" required="">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="Donatur Kampus">Donatur Kampus</option>
+						</select>
+					</div>
+					<div class="form-group col-6">
 						<label>Email</label>
 						<input type="email" name="email" class="form-control" placeholder="Email ..." required="">
 					</div>
-					<div class="form-group">
+					<div class="form-group col-6">
 						<label>Nomor HP</label>
 						<input type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
 					</div>
-					<div class="form-group">
+					<div class="form-group col-6">
 						<label>Kelas</label>
 						<input type="text" name="kelas" class="form-control" placeholder="Kelas ..." required="">
 					</div>
-					<div class="form-group">
-						<label>Praktek</label>
-						<input type="text" name="praktek" class="form-control" placeholder="Praktek ..." required="">
-					</div>
-					<div class="form-group">
+					<div class="form-group col-6">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control" placeholder="Username ..." required="">
 					</div>
-					<div class="form-group">
+					<div class="form-group col-6">
 						<label>Password</label>
 						<input type="password" name="password" class="form-control" placeholder="Password ..." required="">
 					</div>
-					<div class="form-group">
+					<div class="form-group col-6">
+						<label>Jenis Perasat</label>
+						<input type="text" name="perasat" class="form-control" placeholder="Jenis Perasat ..." required="">
+					</div>
+					<div class="form-group col-12">
 						<label>Level</label>
 						<select name="level" class="form-control" required="">
 							<option value="admin">Admin</option>
@@ -155,7 +189,7 @@ while ($d = mysqli_fetch_array($p)) {
 
 	<div class="modal fade" id="modalEditUser<?php echo $d['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content px-2">
 				<div class="modal-header no-bd">
 					<h5 class="modal-title">
 						<span class="fw-mediumbold">
@@ -169,41 +203,70 @@ while ($d = mysqli_fetch_array($p)) {
 					</button>
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
-					<div class="modal-body">
+					<div class="modal-body row">
 						<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Nama Lengkap</label>
 							<input value="<?php echo $d['nama_lengkap'] ?>" type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
+							<label>Nama Dosen</label>
+							<input value="<?php echo $d['nama_dosen'] ?>" type="text" name="nama_dosen" class="form-control" placeholder="Nama Dosen ..." required="">
+						</div>
+						<div class="form-group col-6">
+							<label>Nama Mata Kuliah</label>
+							<input value="<?php echo $d['matkul'] ?>" type="text" name="matkul" class="form-control" placeholder="Nama Mata Kuliah ..." required="">
+						</div>
+						<div class="form-group col-6">
+							<label>Semester</label>
+							<select class="form-control" name="semester" required="">
+								<option value="<?php echo $d['semester'] ?>"><?php echo $d['semester'] ?></option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="Donatur Kampus">Donatur Kampus</option>
+							</select>
+						</div>
+						<div class="form-group col-6">
 							<label>Email</label>
 							<input value="<?php echo $d['email'] ?>" type="email" name="email" class="form-control" placeholder="Email ..." required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Nomor HP</label>
 							<input value="<?php echo $d['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Kelas</label>
 							<input value="<?php echo $d['kelas'] ?>" type="text" name="kelas" class="form-control" placeholder="Kelas ..." required="">
 						</div>
-						<div class="form-group">
-							<label>Praktek</label>
-							<input value="<?php echo $d['praktek'] ?>" type="text" name="praktek" class="form-control" placeholder="Praktek ..." required="">
+						<div class="form-group col-6">
+							<label>Jenis Perasat</label>
+							<input value="<?php echo $d['perasat'] ?>" type="text" name="perasat" class="form-control" placeholder="Jenis Perasat ..." required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Username</label>
 							<input value="<?php echo $d['username'] ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Password</label>
 							<input value="<?php echo $d['password'] ?>" type="password" name="password" class="form-control" placeholder="Password ..." required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-12">
 							<label>Level</label>
 							<select name="level" class="form-control" required="">
 								<option value="admin">Admin</option>
-								<option value="user">User</option>
+								<option value="user" selected>User</option>
 							</select>
 						</div>
 					</div>
@@ -261,7 +324,7 @@ while ($k = mysqli_fetch_array($q)) {
 
 	<div class="modal fade" id="modalDetailUser<?php echo $k['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content px-2">
 				<div class="modal-header no-bd">
 					<h5 class="modal-title">
 						<span class="fw-mediumbold">
@@ -275,39 +338,51 @@ while ($k = mysqli_fetch_array($q)) {
 					</button>
 				</div>
 				<form method="POST" enctype="multipart/form-data" action="">
-					<div class="modal-body">
+					<div class="modal-body row">
 						<input type="hidden" name="id" value="<?php echo $k['id'] ?>">
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Nama Lengkap</label>
-							<input readonly value="<?php echo $k['nama_lengkap'] ?>" type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap ..." required="">
+							<input readonly value="<?php echo $k['nama_lengkap'] ?>" type="text" name="nama_lengkap" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
+							<label>Nama Dosen</label>
+							<input readonly value="<?php echo $k['nama_dosen'] ?>" type="text" name="nama_dosen" class="form-control" placeholder="-" required="">
+						</div>
+						<div class="form-group col-6">
+							<label>Nama Mata Kuliah</label>
+							<input readonly value="<?php echo $k['matkul'] ?>" type="text" name="matkul" class="form-control" placeholder="-" required="">
+						</div>
+						<div class="form-group col-6">
+							<label>Semester</label>
+							<input readonly value="<?php echo $k['semester'] ?>" type="text" name="semester" class="form-control" placeholder="-" required="">
+						</div>
+						<div class="form-group col-6">
 							<label>Email</label>
-							<input readonly value="<?php echo $k['email'] ?>" type="email" name="email" class="form-control" placeholder="Email ..." required="">
+							<input readonly value="<?php echo $k['email'] ?>" type="email" name="email" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Nomor HP</label>
-							<input readonly value="<?php echo $k['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
+							<input readonly value="<?php echo $k['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Kelas</label>
-							<input readonly value="<?php echo $k['kelas'] ?>" type="text" name="Kelas" class="form-control" placeholder="Kelas ..." required="">
+							<input readonly value="<?php echo $k['kelas'] ?>" type="text" name="kelas" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
-							<label>Praktek</label>
-							<input readonly value="<?php echo $k['praktek'] ?>" type="text" name="Praktek" class="form-control" placeholder="Praktek ..." required="">
+						<div class="form-group col-6">
+							<label>Perasat</label>
+							<input readonly value="<?php echo $k['perasat'] ?>" type="text" name="perasat" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Username</label>
-							<input readonly value="<?php echo $k['username'] ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
+							<input readonly value="<?php echo $k['username'] ?>" type="text" name="username" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-6">
 							<label>Password</label>
-							<input readonly value="<?php echo $k['password'] ?>" type="password" name="password" class="form-control" placeholder="Password ..." required="">
+							<input readonly value="<?php echo $k['password'] ?>" type="password" name="password" class="form-control" placeholder="-" required="">
 						</div>
-						<div class="form-group">
+						<div class="form-group col-12">
 							<label>Level</label>
-							<input readonly value="<?php echo $k['level'] ?>" type="text" name="nama_barang" class="form-control" placeholder="Nama Barang ..." required="">
+							<input readonly value="<?php echo $k['level'] ?>" type="text" name="nama_barang" class="form-control" placeholder="-" required="">
 						</div>
 					</div>
 					<div class="modal-footer no-bd">
@@ -322,29 +397,35 @@ while ($k = mysqli_fetch_array($q)) {
 <?php
 if (isset($_POST['simpan'])) {
 	$nama_lengkap = $_POST['nama_lengkap'];
+	$nama_dosen = $_POST['nama_dosen'];
+	$matkul = $_POST['matkul'];
+	$semester = $_POST['semester'];
 	$email = $_POST['email'];
 	$nohp = $_POST['nohp'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$level = $_POST['level'];
 	$kelas = $_POST['kelas'];
-	$praktek = $_POST['praktek'];
+	$perasat = $_POST['perasat'];
 
-	mysqli_query($conn, "INSERT into user values ('','$nama_lengkap', '$email', '$nohp', '$username', '$password', '$level', '$kelas', '$praktek')");
+	mysqli_query($conn, "INSERT into user values ('','$nama_lengkap','$nama_dosen','$matkul','$semester','$email','$nohp','$username','$password','$level','$kelas','$perasat')");
 	echo "<script>alert ('User Berhasil Disimpan') </script>";
 	echo "<meta http-equiv='refresh' content=0; URL=?view=datauser>";
 } elseif (isset($_POST['ubah'])) {
 	$id = $_POST['id'];
 	$nama_lengkap = $_POST['nama_lengkap'];
+	$nama_dosen = $_POST['nama_dosen'];
+	$matkul = $_POST['matkul'];
+	$semester = $_POST['semester'];
 	$email = $_POST['email'];
 	$nohp = $_POST['nohp'];
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$level = $_POST['level'];
 	$kelas = $_POST['kelas'];
-	$praktek = $_POST['praktek'];
+	$perasat = $_POST['perasat'];
 
-	mysqli_query($conn, "UPDATE user set id='$id', nama_lengkap='$nama_lengkap', email='$email', nohp='$nohp', username='$username', password='$password', level='$level', kelas='$kelas', praktek='$praktek' where id='$id'");
+	mysqli_query($conn, "UPDATE user set id='$id', nama_lengkap='$nama_lengkap', nama_dosen='$nama_dosen', matkul='$matkul', semester='$semester', email='$email', nohp='$nohp', username='$username', password='$password', level='$level', kelas='$kelas', perasat='$perasat' where id='$id'");
 	echo "<script>alert ('User Berhasil Diubah') </script>";
 	echo "<meta http-equiv='refresh' content=0; URL=?view=datauser>";
 } elseif (isset($_POST['hapus'])) {
