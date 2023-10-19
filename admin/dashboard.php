@@ -28,7 +28,7 @@ $z = mysqli_fetch_array($t);
 
 		<!-- ============================================= ISENG DOANG =============================================== -->
 		<div class="position-absolute d-flex justify-content-center align-items-center w-100 h-75">
-			<h1 style="font-size: 20rem; z-index:50; rotate:-15deg"><strong>KONTOL</strong></h1>
+			<h1 style="font-size: 20rem; z-index:50; rotate:-15deg"><strong>NOPANDI</strong></h1>
 		</div>
 		<!-- ============================================= ISENG DOANG =============================================== -->
 
