@@ -150,12 +150,12 @@
 						<input type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
 					</div>
 					<div class="form-group col-6">
-						<label>Kelas</label>
-						<input type="text" name="kelas" class="form-control" placeholder="Kelas ..." required="">
+						<label>Kelas / Angkatan</label>
+						<input type="text" name="kelas" class="form-control" placeholder="contoh: '4KA09 / 2019' " required="">
 					</div>
 					<div class="form-group col-6">
-						<label>Username</label>
-						<input type="text" name="username" class="form-control" placeholder="Username ..." required="">
+						<label>NPM</label>
+						<input type="text" name="username" class="form-control" placeholder="NPM ..." required="">
 					</div>
 					<div class="form-group col-6">
 						<label>Password</label>
@@ -247,16 +247,16 @@ while ($d = mysqli_fetch_array($p)) {
 							<input value="<?php echo $d['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="Nomor HP ..." required="">
 						</div>
 						<div class="form-group col-6">
-							<label>Kelas</label>
-							<input value="<?php echo $d['kelas'] ?>" type="text" name="kelas" class="form-control" placeholder="Kelas ..." required="">
+							<label>Kelas / Angkatan</label>
+							<input value="<?php echo $d['kelas'] ?>" type="text" name="kelas" class="form-control" placeholder="Contoh: '4KA09 / 2019" required="">
 						</div>
 						<div class="form-group col-6">
 							<label>Jenis Perasat</label>
 							<input value="<?php echo $d['perasat'] ?>" type="text" name="perasat" class="form-control" placeholder="Jenis Perasat ..." required="">
 						</div>
 						<div class="form-group col-6">
-							<label>Username</label>
-							<input value="<?php echo $d['username'] ?>" type="text" name="username" class="form-control" placeholder="Username ..." required="">
+							<label>NPM</label>
+							<input value="<?php echo $d['username'] ?>" type="text" name="username" class="form-control" placeholder="NPM ..." required="">
 						</div>
 						<div class="form-group col-6">
 							<label>Password</label>
@@ -365,7 +365,7 @@ while ($k = mysqli_fetch_array($q)) {
 							<input readonly value="<?php echo $k['nohp'] ?>" type="number" name="nohp" class="form-control" placeholder="-" required="">
 						</div>
 						<div class="form-group col-6">
-							<label>Kelas</label>
+							<label>Kelas / Angkatan</label>
 							<input readonly value="<?php echo $k['kelas'] ?>" type="text" name="kelas" class="form-control" placeholder="-" required="">
 						</div>
 						<div class="form-group col-6">

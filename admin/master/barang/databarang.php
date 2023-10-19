@@ -109,7 +109,7 @@
 					</div>
 					<div class="form-group">
 						<label>Foto</label>
-						<input type="file" name="foto" class="form-control" placeholder required="">
+						<input type="file" name="foto" class="form-control" placeholder="">
 					</div>
 				</div>
 				<div class="modal-footer no-bd">
@@ -158,7 +158,7 @@ while ($d = mysqli_fetch_array($p)) {
 						</div>
 						<div class="form-group">
 							<label>Foto</label>
-							<input type="file" name="foto" id="foto" class="form-control" placeholder required>
+							<input type="file" name="foto" id="foto" class="form-control" placeholder>
 						</div>
 					</div>
 					<div class="modal-footer no-bd">

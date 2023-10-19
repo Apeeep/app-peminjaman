@@ -25,13 +25,6 @@ $z = mysqli_fetch_array($t);
 
 <div class="main-panel">
 	<div class="content">
-
-		<!-- ============================================= ISENG DOANG =============================================== -->
-		<div class="position-absolute d-flex justify-content-center align-items-center w-100 h-75">
-			<h1 style="font-size: 20rem; z-index:50; rotate:-15deg"><strong>NOPANDI</strong></h1>
-		</div>
-		<!-- ============================================= ISENG DOANG =============================================== -->
-
 		<div class="page-inner">
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
