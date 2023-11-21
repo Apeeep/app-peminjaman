@@ -36,7 +36,7 @@
 									<select class="form-control" id="id_barang" onchange="changeValue(this.value)" name="id_barang" required="">
 										<option value="" hidden="">-- Pilih Barang --</option>
 										<?php
-										$query       = mysqli_query($conn, 'SELECT * from barang');
+										$query       = mysqli_query($conn, 'SELECT * from barang ORDER BY nama_barang ASC');
 										$stok 	     = "var stok 		= new Array();\n;";
 										$deskripsi   = "var deskripsi   = new Array();\n;";
 										$nama_barang = "var nama_barang = new Array();\n;";
@@ -66,7 +66,8 @@
 
 								<div class="form-group">
 									<label>Gambar Barang</label>
-									<img id="foto" src="" style="width: 450px; height: 350px;" class="form-control">
+									<img id="foto" src="" class="form-control">
+									
 								</div>
 
 
@@ -152,6 +153,7 @@
 			document.getElementById('foto').src = "../admin/master/barang/Fotobarang/" + foto[indeks].foto;
 		}
 	}
+
 </script>
 
 

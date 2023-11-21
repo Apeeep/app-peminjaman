@@ -72,11 +72,11 @@ $d = mysqli_fetch_array($query);
 										<td>:</td>
 										<td><?php echo $d["status"]; ?></td>
 									</tr>
-									<tr>
+									<!-- <tr>
 										<td>Lokasi Barang</td>
 										<td>:</td>
 										<td><?php echo $d["lokasi_barang"]; ?></td>
-									</tr>
+									</tr> -->
 									<tr>
 										<td>Deskripsi</td>
 										<td>:</td>

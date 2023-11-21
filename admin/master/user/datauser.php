@@ -2,10 +2,10 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Data User</h4>
+				<h4 class="page-title">Data Pengguna</h4>
 				<ul class="breadcrumbs">
 					<li class="nav-home">
-						<a href="#">
+					<a href="?view=dashboard">
 							<i class="flaticon-home"></i>
 						</a>
 					</li>
@@ -19,7 +19,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="#">User</a>
+						<a href="#">Pengguna</a>
 					</li>
 				</ul>
 			</div>
@@ -28,10 +28,10 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Data User</h4>
+								<h4 class="card-title">Data Pengguna</h4>
 								<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#modalAddUser">
 									<i class="fa fa-plus"></i>
-									Tambah User
+									Tambah Data
 								</button>
 							</div>
 						</div>
@@ -154,8 +154,8 @@
 						<input type="text" name="kelas" class="form-control" placeholder="contoh: '4KA09 / 2019' " required="">
 					</div>
 					<div class="form-group col-6">
-						<label>NPM</label>
-						<input type="text" name="username" class="form-control" placeholder="NPM ..." required="">
+						<label>Username</label>
+						<input type="text" name="username" class="form-control" placeholder="Isi dengan NPM" required="">
 					</div>
 					<div class="form-group col-6">
 						<label>Password</label>
@@ -255,8 +255,8 @@ while ($d = mysqli_fetch_array($p)) {
 							<input value="<?php echo $d['perasat'] ?>" type="text" name="perasat" class="form-control" placeholder="Jenis Perasat ..." required="">
 						</div>
 						<div class="form-group col-6">
-							<label>NPM</label>
-							<input value="<?php echo $d['username'] ?>" type="text" name="username" class="form-control" placeholder="NPM ..." required="">
+							<label>Username</label>
+							<input value="<?php echo $d['username'] ?>" type="text" name="username" class="form-control" placeholder="Isi dengan NPM" required="">
 						</div>
 						<div class="form-group col-6">
 							<label>Password</label>

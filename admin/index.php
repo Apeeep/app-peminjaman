@@ -41,7 +41,8 @@ session_start();
 		<!--
 				Tip 1: You can change the background color of the main header using: data-background-color="blue | purple | light-blue | green | orange | red"
 		-->
-		<div class="main-header" data-background-color="light-blue">
+		<div class="main-header" data-background-color="purple">
+		<span style="color: white;">  Website ini masih dalam tahapan uji coba</span>
 			<!-- Logo Header -->
 			<div class="logo-header">
 				<a>
@@ -63,7 +64,7 @@ session_start();
 			<!-- End Logo Header -->
 
 			<!-- Navbar Header -->
-			<nav class="navbar navbar-header navbar-expand-lg">
+			<!-- <nav class="navbar navbar-header navbar-expand-lg">
 
 				<div class="container-fluid">
 					<div class="collapse" id="search-nav">
@@ -79,7 +80,7 @@ session_start();
 						</form>
 					</div>
 				</div>
-			</nav>
+			</nav> -->
 			<!-- End Navbar -->
 		</div>
 		<!-- Sidebar -->

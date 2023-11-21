@@ -73,9 +73,11 @@
 												<td>
 													<?php if ($pinjambarang['status'] == 'menunggu') { ?>
 														<a href="?view=detailpinjambarang&id=<?php echo $pinjambarang['id'] ?>" title="Detail" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Batal Pinjam" class="btn btn-xs btn-info"><i class="fa fa-check-circle"></i> Aprrove</a>
+														<a href="#modalApprovePinjamBarang<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Setujui" class="btn btn-xs btn-info"><i class="fa fa-check-circle"></i> Aprrove</a>
+														<a href="#modalHapusPinjam<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Hapus" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 													<?php } else { ?>
 														<div class="badge badge-success"><?php echo $pinjambarang["status"]; ?></div>
+														<a href="#modalHapusPinjam<?php echo $pinjambarang['id'] ?>" data-toggle="modal" title="Hapus" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 													<?php } ?>
 												</td>
 											</tr>
@@ -124,14 +126,6 @@ while ($row = mysqli_fetch_array($c)) { ?>
 						<input type="hidden" name="tgl_mulai" value="<?php echo $row["tgl_mulai"]; ?>">
 						<input type="hidden" name="tgl_selesai" value="<?php echo $row["tgl_selesai"]; ?>">
 						<input type="hidden" name="qty" value="<?php echo $row["qty"]; ?>">
-						<div class="form-group">
-							<label>Email Pengirim</label>
-							<input type="email" name="email_pengirim" class="form-control">
-						</div>
-						<div class="form-group">
-							<label>Password Pengirim</label>
-							<input type="password" name="password_pengirim" class="form-control">
-						</div>
 						<input type="hidden" name="status" value="approve">
 						<input type="hidden" name="email_penerima" value="<?php echo $row["email"]; ?>">
 						<input type="hidden" name="nama_barang" value="<?php echo $row["nama_barang"]; ?>">
@@ -147,6 +141,55 @@ while ($row = mysqli_fetch_array($c)) { ?>
 
 <?php }
 ?>
+
+<?php
+$c = mysqli_query($conn, 'SELECT * from pinjambarang');
+while ($row = mysqli_fetch_array($c)) {
+?>
+
+	<div class="modal fade" id="modalHapusPinjam<?php echo $row['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header no-bd">
+					<h5 class="modal-title">
+						<span class="fw-mediumbold">
+							Hapus</span>
+						<span class="fw-light">
+							Barang
+						</span>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form method="POST" enctype="multipart/form-data" action="">
+					<div class="modal-body">
+						<input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+						<h4>Apakah Anda Ingin Menghapus Data Ini ?</h4>
+					</div>
+					<div class="modal-footer no-bd">
+						<button type="submit" name="hapus" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-undo"></i> Close</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<?php if (isset($_POST['hapus'])) {
+    // Ambil ID yang akan dihapus
+    $idToDelete = $_POST['id'];
+    
+    // Selanjutnya, Anda dapat mengeksekusi perintah SQL DELETE untuk menghapus data
+    $query = "DELETE FROM pinjambarang WHERE id = $idToDelete";
+
+    if (mysqli_query($conn, $query)) {
+        echo "Data dengan ID $idToDelete berhasil dihapus.";
+    } else {
+        echo "Gagal menghapus data dengan ID $idToDelete. Kesalahan: " . mysqli_error($conn);
+    }
+}
+} ?>
 
 <?php if (isset($_POST["ubah"])) {
 	$id = $_POST["id"];
