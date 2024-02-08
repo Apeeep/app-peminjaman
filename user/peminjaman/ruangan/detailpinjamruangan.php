@@ -88,6 +88,6 @@ $d = mysqli_fetch_array($query);
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; 2023 Audi Rizky Universitas Gunadarma</b></h6>
 	</center>
 </div>

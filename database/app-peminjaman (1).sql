@@ -59,7 +59,7 @@ CREATE TABLE `pinjambarang` (
   `id_barang` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `tgl_mulai` datetime NOT NULL,
-  `tgl_selesai` datetime NOT NULL,
+  `tgl_selesai` datetime NOT NULL
   `qty` varchar(255) NOT NULL,
   `lokasi_barang` varchar(255) NOT NULL,
   `status` varchar(50) NOT NULL

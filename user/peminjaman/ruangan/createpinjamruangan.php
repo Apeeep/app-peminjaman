@@ -94,7 +94,7 @@
 
 								<div class="form-group">
 									<label>Tgl Selesai Pinjam</label>
-									<input type="datetime-local" name="tgl_selesai" class="form-control">
+									<input type="date" name="tgl_selesai" class="form-control">
 								</div>
 
 								<input type="hidden" name="id_user" value="<?php echo $_SESSION["id"]; ?>">
@@ -113,7 +113,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; 2023 Audi Rizky Universitas Gunadarma</b></h6>
 	</center>
 </div>
 

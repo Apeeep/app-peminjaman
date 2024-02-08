@@ -27,7 +27,7 @@ $d = mysqli_fetch_array($query);
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="#">Barang</a>
+						<a href="#">Alat</a>
 					</li>
 				</ul>
 			</div>
@@ -36,7 +36,7 @@ $d = mysqli_fetch_array($query);
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Detail Pinjam Barang</h4>
+								<h4 class="card-title">Detail Pinjam Alat</h4>
 							</div>
 						</div>
 						<div class="card-body">
@@ -48,7 +48,7 @@ $d = mysqli_fetch_array($query);
 										<td><?php echo $d["nama_lengkap"]; ?></td>
 									</tr>
 									<tr>
-										<td>Nama Barang</td>
+										<td>Nama Alat</td>
 										<td>:</td>
 										<td><?php echo $d["nama_barang"]; ?></td>
 									</tr>
@@ -96,6 +96,6 @@ $d = mysqli_fetch_array($query);
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; 2023 Audi Rizky Universitas Gunadarma</b></h6>
 	</center>
 </div>

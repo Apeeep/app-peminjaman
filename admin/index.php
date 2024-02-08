@@ -118,14 +118,14 @@ session_start();
 						<li class="nav-item">
 							<a href="?view=databarang">
 								<i class="fas fa-briefcase"></i>
-								<p>Data Barang</p>
+								<p>Data Alat</p>
 							</a>
 						</li>
 
 						<li class="nav-item">
 							<a href="?view=datapinjambarang">
 								<i class="fas fa-book"></i>
-								<p>Pinjam Barang</p>
+								<p>Pinjam Alat</p>
 							</a>
 						</li>
 

@@ -19,7 +19,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="#">Barang</a>
+						<a href="#">Alat</a>
 					</li>
 				</ul>
 			</div>
@@ -28,10 +28,10 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Data Pinjam Barang</h4>
+								<h4 class="card-title">Data Pinjam Alat</h4>
 								<a href="?view=createpinjambarang" class="btn btn-primary btn-round ml-auto">
 									<i class="fa fa-plus"></i>
-									Pinjam Barang
+									Pinjam Alat
 								</a>
 							</div>
 						</div>
@@ -41,7 +41,7 @@
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama Barang</th>
+											<th>Nama Alat</th>
 											<th>Tgl Mulai</th>
 											<th>Tgl Selesai</th>
 											<th>Jumlah Pinjam</th>
@@ -98,7 +98,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; 2023 Audi Rizky Universitas Gunadarma</b></h6>
 	</center>
 </div>
 

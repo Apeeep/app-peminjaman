@@ -31,7 +31,7 @@ $d = mysqli_fetch_array($r);
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
-										<p class="card-category">Data Barang</p>
+										<p class="card-category">Data Alat</p>
 										<h4 class="card-title"><?php echo $row["barang"]; ?></h4>
 									</div>
 								</div>
@@ -73,7 +73,7 @@ $d = mysqli_fetch_array($r);
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
-										<p class="card-category">Pinjam Barang</p>
+										<p class="card-category">Pinjam Alat</p>
 										<h4 class="card-title"><?php echo $d["pinjambarang"]; ?></h4>
 									</div>
 								</div>

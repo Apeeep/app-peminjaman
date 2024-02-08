@@ -19,7 +19,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="#">Barang</a>
+						<a href="#">Alat</a>
 					</li>
 				</ul>
 			</div>
@@ -27,14 +27,14 @@
 				<div class="col-md-6">
 					<div class="card">
 						<div class="card-header">
-							<div class="card-title">Create Pinjam Barang</div>
+							<div class="card-title">Create Pinjam Alat</div>
 						</div>
 						<form method="POST" action="" enctype="multipart/form-data">
 							<div class="card-body">
 								<div class="form-group">
-									<label>Nama Barang</label>
+									<label>Nama Alat</label>
 									<select class="form-control" id="id_barang" onchange="changeValue(this.value)" name="id_barang" required="">
-										<option value="" hidden="">-- Pilih Barang --</option>
+										<option value="" hidden="">-- Pilih Alat --</option>
 										<?php
 										$query       = mysqli_query($conn, 'SELECT * from barang ORDER BY nama_barang ASC');
 										$stok 	     = "var stok 		= new Array();\n;";
@@ -55,7 +55,7 @@
 								<input type="hidden" readonly="" id="nama_barang" value="<?php echo $nama_barang; ?>" name="nama_barang">
 
 								<div class="form-group">
-									<label>Stok Barang Tersedia</label>
+									<label>Stok Alat Tersedia</label>
 									<input type="text" readonly="" id="stok" class="form-control" placeholder="">
 								</div>
 
@@ -65,7 +65,7 @@
 								</div>
 
 								<div class="form-group">
-									<label>Gambar Barang</label>
+									<label>Gambar Alat</label>
 									<img id="foto" src="" class="form-control">
 									
 								</div>
@@ -94,8 +94,8 @@
 								</div> -->
 
 								<div class="form-group">
-									<label>Jumlah Pinjam Barang</label>
-									<input min="1" step="1" value="1" type="number" name="qty" class="form-control" placeholder="Jumlah Pinjam Barang ...">
+									<label>Jumlah Pinjam Alat</label>
+									<input min="1" step="1" value="1" type="number" name="qty" class="form-control" placeholder="Jumlah Pinjam Alat ...">
 								</div>
 
 								<div class="form-group">
@@ -108,7 +108,7 @@
 
 								<div class="form-group">
 									<label>Tgl Selesai Pinjam</label>
-									<input type="datetime-local" name="tgl_selesai" class="form-control">
+									<input type="date" name="tgl_selesai" class="form-control">
 								</div>
 
 								<!-- <div class="form-group">
@@ -132,7 +132,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; 2023 Audi Rizky Universitas Gunadarma</b></h6>
 	</center>
 </div>
 

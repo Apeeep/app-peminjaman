@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Data Barang</h4>
+				<h4 class="page-title">Data Alat</h4>
 				<ul class="breadcrumbs">
 					<li class="nav-home">
 						<a href="#">
@@ -19,7 +19,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="#">Barang</a>
+						<a href="#">Alat</a>
 					</li>
 				</ul>
 			</div>
@@ -28,7 +28,7 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Data Barang</h4>
+								<h4 class="card-title">Data Alat</h4>
 								<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#modalAddBarang">
 									<i class="fa fa-plus"></i>
 									Tambah Data
@@ -41,7 +41,7 @@
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama Barang</th>
+											<th>Nama Alat</th>
 											<th>Stok</th>
 											<th>Action</th>
 										</tr>
@@ -74,7 +74,7 @@
 		</div>
 	</div>
 	<center>
-		<h6><b>&copy; Copyright@2023 Audi Rizky</b></h6>
+		<h6><b>&copy; 2023 Audi Rizky Universitas Gunadarma</b></h6>
 	</center>
 </div>
 
@@ -86,7 +86,7 @@
 					<span class="fw-mediumbold">
 						New</span>
 					<span class="fw-light">
-						Barang
+						Alat
 					</span>
 				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -96,8 +96,8 @@
 			<form method="POST" enctype="multipart/form-data" action="">
 				<div class="modal-body">
 					<div class="form-group">
-						<label>Nama Barang</label>
-						<input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang ..." required="">
+						<label>Nama Alat</label>
+						<input type="text" name="nama_barang" class="form-control" placeholder="Nama Alat ..." required="">
 					</div>
 					<div class="form-group">
 						<label>Stok</label>
@@ -134,7 +134,7 @@ while ($d = mysqli_fetch_array($p)) {
 						<span class="fw-mediumbold">
 							Edit</span>
 						<span class="fw-light">
-							Barang
+							Alat
 						</span>
 					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -145,7 +145,7 @@ while ($d = mysqli_fetch_array($p)) {
 					<div class="modal-body">
 						<input type="hidden" name="id" value="<?php echo $d['id'] ?>">
 						<div class="form-group">
-							<label>Nama Barang</label>
+							<label>Nama Alat</label>
 							<input value="<?php echo $d['nama_barang'] ?>" type="text" name="nama_barang" class="form-control" placeholder="Nama Barang ..." required="">
 						</div>
 						<div class="form-group">
@@ -185,7 +185,7 @@ while ($row = mysqli_fetch_array($c)) {
 						<span class="fw-mediumbold">
 							Hapus</span>
 						<span class="fw-light">
-							Barang
+							Alat
 						</span>
 					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -221,7 +221,7 @@ while ($k = mysqli_fetch_array($q)) {
 						<span class="fw-mediumbold">
 							Detail</span>
 						<span class="fw-light">
-							Barang
+							Alat
 						</span>
 					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -232,7 +232,7 @@ while ($k = mysqli_fetch_array($q)) {
 					<div class="modal-body">
 						<input type="hidden" name="id" value="<?php echo $k['id'] ?>">
 						<div class="form-group">
-							<label>Nama Barang</label>
+							<label>Nama Alat</label>
 							<input readonly value="<?php echo $k['nama_barang'] ?>" type="text" name="nama_barang" class="form-control" placeholder="Nama Barang ..." required="">
 						</div>
 						<div class="form-group">
